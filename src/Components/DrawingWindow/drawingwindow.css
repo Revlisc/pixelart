@@ -1,0 +1,16 @@
+.row {
+    display: inline-block;
+    margin: 0px;
+    padding: 0px;
+    border-spacing: 0;
+    
+    height:auto;
+    width:max-content;
+}
+.containerDrawing {
+    width: 800px;
+    height: 800px;
+    display: grid;
+    grid-gap: 0;
+    border: 1px solid black;
+}

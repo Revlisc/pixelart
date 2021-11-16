@@ -1,23 +1,24 @@
-import React, {useState} from 'react'
-import Row from '../Row/Row'
-import './drawingwindow.css'
+import React, { useState, useEffect } from "react";
+// import Row from "../Row/Row";
+import "./drawingwindow.css";
 
-const DrawingWindow = ({panelLength, selectedColor}) => {
-    
-    let rows = []
+export const Square = () => {
+  return <div className='square'></div>;
+};
 
+const DrawingWindow = ({ panelLength, selectedColor }) => {
+  const [grid, setGrid] = useState();
+  let squares = [];
+
+  useEffect(() => {
     for (let i = 0; i < panelLength; i++) {
-        rows.push(<Row key={i} panelLength={panelLength} selectedColor={selectedColor} />)
+      squares.push(<Square />);
     }
-    
-    return (
-        <div className='containerDrawing'>
-            <div className='row'>
-                
-                {rows}
-            </div>
-        </div>
-    )
-}
+    setGrid(squares);
+  }, []);
 
-export default DrawingWindow
+  console.log(grid);
+  return <div className='containerDrawing'>{grid}</div>;
+};
+
+export default DrawingWindow;

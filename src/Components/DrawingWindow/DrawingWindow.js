@@ -36,9 +36,10 @@ const ColorScheme = ({ handleColorChange }) => {
 
   return (
     <div className='color-pallete'>
-      {pallete.map((color) => {
+      {pallete.map((color, idx) => {
         return (
           <div
+            key={idx}
             className='color-item'
             style={{ backgroundColor: `${color}` }}
             onClick={() => handleColorChange(color)}></div>

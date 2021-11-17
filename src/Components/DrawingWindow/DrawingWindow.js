@@ -3,6 +3,7 @@ import React, { useState, useEffect, Fragment } from "react";
 import "./drawingwindow.css";
 import Square from "../Square/Square";
 import { v4 as uuidv4 } from "uuid";
+import { ChromePicker } from "react-color";
 
 const getWindowDimentions = () => {
   const { innerWidth: width, innerHeight: height } = window;
@@ -13,6 +14,16 @@ const getWindowDimentions = () => {
 };
 
 const CanvasSizePicker = () => {};
+
+const ColorPicker = ({ handleColorChange }) => {
+  const [color, setColor] = useState("#fff");
+  //color picker is a controlled component, when state changes, pass the color value to the parent state selectedColor
+  useEffect(() => {
+    handleColorChange(color);
+  }, [color]);
+
+  return <ChromePicker color={color} onChangeComplete={(color) => setColor(color.hex)} />;
+};
 
 const DrawingWindow = () => {
   const [grid, setGrid] = useState();
@@ -62,7 +73,9 @@ const DrawingWindow = () => {
     getCanvasWidth();
   }, [windowDimensions]);
 
-  console.log(grid);
+  const handleColorChange = (color) => {
+    setSelectedColor(color);
+  };
 
   return (
     <Fragment>
@@ -75,6 +88,7 @@ const DrawingWindow = () => {
             })}
         </div>
       </div>
+      <ColorPicker handleColorChange={handleColorChange} />
     </Fragment>
   );
 };

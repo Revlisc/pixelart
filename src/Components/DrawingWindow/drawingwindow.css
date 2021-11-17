@@ -30,6 +30,21 @@
   justify-content: center;
 }
 
+.colors-container {
+  display: flex;
+}
+
+.color-pallete {
+  display: grid;
+  grid-template-columns: repeat(3, 12px);
+  grid-template-rows: repeat(3, auto);
+}
+.color-item {
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+}
+
 /* .row {
   width: 100%;
   height: 5px;

@@ -25,11 +25,22 @@ const ColorPicker = ({ handleColorChange }) => {
   return <ChromePicker color={color} onChangeComplete={(color) => setColor(color.hex)} />;
 };
 
+const ColorScheme = () => {
+  const [pallete, setPallete] = useState(["#bada55", "#A6B7DA"]);
+  return (
+    <div className='color-pallete'>
+      {pallete.map((color) => {
+        return <div className='color-item' style={{ backgroundColor: `${color}` }}></div>;
+      })}
+    </div>
+  );
+};
+
 const DrawingWindow = () => {
   const [grid, setGrid] = useState();
   const [windowDimensions, setWindowDimensions] = useState(getWindowDimentions());
   const [canvasWidth, setCanvasWidth] = useState("");
-  const [selectedColor, setSelectedColor] = useState("#194D33");
+  const [selectedColor, setSelectedColor] = useState("");
 
   const getCanvasWidth = () => {
     //should be 75% of viewport height?
@@ -88,7 +99,10 @@ const DrawingWindow = () => {
             })}
         </div>
       </div>
-      <ColorPicker handleColorChange={handleColorChange} />
+      <div className='colors-container'>
+        <ColorPicker handleColorChange={handleColorChange} />
+        <ColorScheme />
+      </div>
     </Fragment>
   );
 };

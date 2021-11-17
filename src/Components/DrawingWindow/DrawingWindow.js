@@ -1,6 +1,8 @@
 import React, { useState, useEffect, Fragment } from "react";
 // import Row from "../Row/Row";
 import "./drawingwindow.css";
+import Square from "../Square/Square";
+import { v4 as uuidv4 } from "uuid";
 
 const getWindowDimentions = () => {
   const { innerWidth: width, innerHeight: height } = window;
@@ -10,16 +12,13 @@ const getWindowDimentions = () => {
   };
 };
 
-export const Square = () => {
-  return <div className='square'></div>;
-};
-
 const CanvasSizePicker = () => {};
 
-const DrawingWindow = ({ panelLength, selectedColor }) => {
+const DrawingWindow = () => {
   const [grid, setGrid] = useState();
   const [windowDimensions, setWindowDimensions] = useState(getWindowDimentions());
   const [canvasWidth, setCanvasWidth] = useState("");
+  const [selectedColor, setSelectedColor] = useState("#194D33");
 
   const getCanvasWidth = () => {
     //should be 75% of viewport height?
@@ -29,7 +28,7 @@ const DrawingWindow = ({ panelLength, selectedColor }) => {
 
   const divStyle = {
     height: "500px",
-    width: `900px`,
+    width: `900px`, //${canvasWidth}px
     display: "grid",
     border: "1px solid black",
     gridTemplateColumns: "repeat(auto-fill, 25px)",
@@ -38,13 +37,13 @@ const DrawingWindow = ({ panelLength, selectedColor }) => {
 
   let squares = [];
 
-  useEffect(() => {
-    const generateGrid = () => {
-      for (let i = 0; i < 720; i++) {
-        squares.push(<Square />);
-      }
-    };
+  const generateGrid = () => {
+    for (let i = 0; i < 720; i++) {
+      squares.push({});
+    }
+  };
 
+  useEffect(() => {
     const handleResize = () => {
       setWindowDimensions(getWindowDimentions());
     };
@@ -63,13 +62,17 @@ const DrawingWindow = ({ panelLength, selectedColor }) => {
     getCanvasWidth();
   }, [windowDimensions]);
 
-  console.log(canvasWidth);
+  console.log(grid);
 
   return (
     <Fragment>
       <div className='container-drawingWindow'>
         <div className='containerDrawing' style={divStyle}>
-          {grid}
+          {/* {grid} */}
+          {grid &&
+            grid.map((item, idx) => {
+              return <Square key={idx} id={uuidv4()} selectedColor={selectedColor} />;
+            })}
         </div>
       </div>
     </Fragment>

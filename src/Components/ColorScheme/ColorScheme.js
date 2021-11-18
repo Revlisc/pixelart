@@ -1,5 +1,6 @@
 import React, { useState, Fragment } from "react";
 import ColorPicker from "../ColorPicker/ColorPicker";
+import { v4 as uuidv4 } from "uuid";
 import "./ColorScheme.css";
 
 const ColorScheme = ({ handleColorChange }) => {
@@ -16,10 +17,18 @@ const ColorScheme = ({ handleColorChange }) => {
     "#dddddd",
   ]);
   const [showColorPicker, setShowColorPicker] = useState(false);
+  const [showDeleteBtns, setShowDeleteBtns] = useState(false);
 
   const addNewColor = (color) => {
     setPallete([...pallete, color]);
     setShowColorPicker(false);
+  };
+
+  const handleDelete = (color) => {
+    console.log(color);
+    const newPallete = pallete.filter((item) => item !== color);
+
+    setPallete(newPallete);
   };
 
   return (
@@ -29,15 +38,24 @@ const ColorScheme = ({ handleColorChange }) => {
           return (
             <div
               key={idx}
+              id={uuidv4()}
               className='color-item'
-              style={{ backgroundColor: `${color}` }}
-              onClick={() => handleColorChange(color)}></div>
+              style={{ backgroundColor: `${color}`, position: "relative" }}
+              onClick={() => handleColorChange(color)}>
+              {showDeleteBtns && (
+                <div className='delete-color-btn' onClick={() => handleDelete(color)}>
+                  X
+                </div>
+              )}
+            </div>
           );
         })}
         <div className='add-new-color' onClick={() => setShowColorPicker(!showColorPicker)}>
           Add new color
         </div>
-        <div className='delete-color'>Delete Color</div>
+        <div className='delete-color' onClick={() => setShowDeleteBtns(true)}>
+          Delete Color
+        </div>
       </div>
       {showColorPicker && <ColorPicker addNewColor={addNewColor} />}
     </Fragment>

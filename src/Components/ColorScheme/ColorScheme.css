@@ -25,3 +25,9 @@
   color: black;
   background-color: beige;
 }
+
+.delete-color-btn {
+  position: absolute;
+  top: 0;
+  right: 5px;
+}

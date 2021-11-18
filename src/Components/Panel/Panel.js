@@ -14,18 +14,22 @@ const Panel = () => {
         e.preventDefault()
     }
     return (
-        <div className='container'>
-            <div className='left'>
-                <form onSubmit={handleSubmit}>
-                    <FilePicker accept='.jpg,.png,.jpeg' label='Images' updateFilesCb={updateUploadedFiles} />
-                </form>
+        <>
+            <h1 className='dashTitle'>Let's Make Some</h1>
+            <h1 className='dashTitle'>Glow Art</h1>
+            <div className='container'>
+                
+                <div className='left'>
+                    <form onSubmit={handleSubmit}>
+                        <FilePicker accept='.jpg,.png,.jpeg' label='Images' updateFilesCb={updateUploadedFiles} />
+                    </form>
+                </div>
+                <div className='right'>
+                    <DrawingWindow panelLength={panelLength} />
+                
+                </div>
             </div>
-            <div className='right'>
-                <DrawingWindow panelLength={panelLength} />
-            
-            </div>
-        </div>
-        
+        </>
     )
 }
 

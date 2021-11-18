@@ -13,7 +13,7 @@
 .fileInput {
     font-size: 18px;
     display: block;
-    width: 100%;
+    width: 80%;
     border: none;
     text-transform: none;
     position: absolute;
@@ -30,7 +30,7 @@
 
 .templateImage {
     width: auto;
-    height: 500px;
+    height: 300px;
     object-fit: cover;
     overflow: hidden;
 }

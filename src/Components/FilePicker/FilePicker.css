@@ -27,3 +27,10 @@
 .fileInput:hover {
     outline: none;
 }
+
+.templateImage {
+    width: auto;
+    height: 500px;
+    object-fit: cover;
+    overflow: hidden;
+}

@@ -71,9 +71,9 @@ const FilePicker = ({label, updateFilesCb, ...otherProps}) => {
             />
         </section> 
         ): (
-        <article>
+        <article >
             
-            <section>
+            <section >
             {Object.keys(files).map((fileName, index) => {
                 let file = files[fileName];
                 let isImageFile = file.type.split("/")[0] === "image";
@@ -84,6 +84,7 @@ const FilePicker = ({label, updateFilesCb, ...otherProps}) => {
                         <img
                         src={URL.createObjectURL(file)}
                         alt={`file preview ${index}`}
+                        className='templateImage'
                         />
                     )}
                     <div isImageFile={isImageFile}>

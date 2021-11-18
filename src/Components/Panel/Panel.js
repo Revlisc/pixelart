@@ -1,17 +1,16 @@
-import React, {useState} from 'react'
-import DrawingWindow from '../DrawingWindow/DrawingWindow'
-import './Panel.css'
+import React, { useState } from "react";
+import DrawingWindow from "../DrawingWindow/DrawingWindow";
+import "./Panel.css";
 
 const Panel = () => {
-    const [panelLength, setPanelLength] = useState(160)
-    const [selectedColor, setSelectedColor] = useState('#f44332')
-    
-    return (
-        <div className='container'>
-            <DrawingWindow panelLength={panelLength} />
-            
-        </div>
-    )
-}
+  return (
+    <div className='container'>
+      <div className='left'></div>
+      <div className='right'>
+        <DrawingWindow />
+      </div>
+    </div>
+  );
+};
 
-export default Panel
+export default Panel;

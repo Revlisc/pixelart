@@ -10,16 +10,18 @@ const getWindowDimentions = () => {
   };
 };
 
-export const Square = () => {
-  return <div className='square'></div>;
+export const Square = ({selectedColor, handleMouseDown}) => {
+  return <div className='square' style={{backgroundColor: selectedColor}} onClick={handleMouseDown}></div>;
 };
 
 const CanvasSizePicker = () => {};
 
-const DrawingWindow = ({ panelLength, selectedColor }) => {
+const DrawingWindow = ({ panelLength }) => {
   const [grid, setGrid] = useState();
   const [windowDimensions, setWindowDimensions] = useState(getWindowDimentions());
   const [canvasWidth, setCanvasWidth] = useState("");
+  const [selectedColor, setSelectedColor] = useState('#f44332')
+  const [clicked, setClicked] = useState(false)
 
   const getCanvasWidth = () => {
     //should be 75% of viewport height?
@@ -36,12 +38,14 @@ const DrawingWindow = ({ panelLength, selectedColor }) => {
     gridTemplateRows: "repeat(auto-fill, 25px)",
   };
 
+
+
   let squares = [];
 
   useEffect(() => {
     const generateGrid = () => {
       for (let i = 0; i < 720; i++) {
-        squares.push(<Square />);
+        squares.push(<Square onClick={handleClick} className={clicked ? 'colored' : 'notColored'} />);
       }
     };
 
@@ -57,13 +61,19 @@ const DrawingWindow = ({ panelLength, selectedColor }) => {
     setGrid(squares);
 
     return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  }, [clicked]);
 
   useEffect(() => {
     getCanvasWidth();
   }, [windowDimensions]);
 
   console.log(canvasWidth);
+
+  const handleClick = () => {
+     
+    setClicked(true)
+    console.log('Clicked')
+  }
 
   return (
     <Fragment>

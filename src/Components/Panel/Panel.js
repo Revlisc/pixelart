@@ -4,7 +4,7 @@ import './Panel.css'
 
 const Panel = () => {
     const [panelLength, setPanelLength] = useState(160)
-    const [selectedColor, setSelectedColor] = useState('#f44332')
+    //const [selectedColor, setSelectedColor] = useState('#f44332')
     
     return (
         <div className='container'>

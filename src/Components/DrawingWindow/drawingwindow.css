@@ -21,7 +21,15 @@
 .square {
   height: 25px;
   width: 25px;
-  border: 1px solid black;
+  
+}
+
+.colored  {
+    background-color: 'red'
+  }
+
+.notColored  {
+    background-color: 'white'
 }
 
 .container-drawingWindow {

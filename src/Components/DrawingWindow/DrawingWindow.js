@@ -2,8 +2,9 @@ import React, { useState, useEffect, Fragment } from "react";
 // import Row from "../Row/Row";
 import "./drawingwindow.css";
 import Square from "../Square/Square";
+import ColorScheme from "../ColorScheme/ColorScheme";
+
 import { v4 as uuidv4 } from "uuid";
-import { ChromePicker } from "react-color";
 
 const getWindowDimentions = () => {
   const { innerWidth: width, innerHeight: height } = window;
@@ -13,45 +14,65 @@ const getWindowDimentions = () => {
   };
 };
 
-const CanvasSizePicker = () => {};
+// const ColorPicker = ({ addNewColor }) => {
+//   const [color, setColor] = useState("");
+//   //color picker is a controlled component, when state changes, pass the color value to the parent state selectedColor
+//   // useEffect(() => {
+//   //   addNewColor(color);
+//   // }, [color]);
+//   const handleChangeComplete = (color) => {
+//     setColor(color.hex);
+//     console.log("change complete");
+//   };
 
-const ColorPicker = ({ handleColorChange, addNewColor }) => {
-  const [color, setColor] = useState("");
-  //color picker is a controlled component, when state changes, pass the color value to the parent state selectedColor
-  useEffect(() => {
-    handleColorChange && handleColorChange(color);
-    addNewColor && addNewColor(color);
-  }, [color]);
+//   const colorPickerSample = {
+//     height: "30px",
+//     width: "30px",
+//     borderRadius: "25%",
+//     backgroundColor: `${color}`,
+//   };
 
-  return <ChromePicker color={color} onChangeComplete={(color) => setColor(color.hex)} />;
-};
+//   return (
+//     <Fragment>
+//       <div className='color-picker'>
+//         <ChromePicker color={color} onChangeComplete={handleChangeComplete} />
+//         <div style={colorPickerSample}></div>
+//         <div className='add-color' onClick={() => addNewColor(color)}>
+//           Add this
+//         </div>
+//       </div>
+//     </Fragment>
+//   );
+// };
 
-const ColorScheme = ({ handleColorChange }) => {
-  const [pallete, setPallete] = useState(["#bada55", "#A6B7DA"]);
-  const [showColorPicker, setShowColorPicker] = useState(false);
+// const ColorScheme = ({ handleColorChange }) => {
+//   const [pallete, setPallete] = useState(["#bada55", "#A6B7DA"]);
+//   const [showColorPicker, setShowColorPicker] = useState(false);
 
-  const addNewColor = (color) => {
-    setPallete([...pallete, color]);
-  };
+//   const addNewColor = (color) => {
+//     setPallete([...pallete, color]);
+//   };
 
-  return (
-    <div className='color-pallete'>
-      {pallete.map((color, idx) => {
-        return (
-          <div
-            key={idx}
-            className='color-item'
-            style={{ backgroundColor: `${color}` }}
-            onClick={() => handleColorChange(color)}></div>
-        );
-      })}
-      <div className='add-new-color' onClick={() => setShowColorPicker(!showColorPicker)}>
-        Add new color
-      </div>
-      {showColorPicker && <ColorPicker addNewColor={addNewColor} />}
-    </div>
-  );
-};
+//   return (
+//     <Fragment>
+//       <div className='color-pallete'>
+//         {pallete.map((color, idx) => {
+//           return (
+//             <div
+//               key={idx}
+//               className='color-item'
+//               style={{ backgroundColor: `${color}` }}
+//               onClick={() => handleColorChange(color)}></div>
+//           );
+//         })}
+//         <div className='add-new-color' onClick={() => setShowColorPicker(!showColorPicker)}>
+//           Add new color
+//         </div>
+//       </div>
+//       {showColorPicker && <ColorPicker addNewColor={addNewColor} />}
+//     </Fragment>
+//   );
+// };
 
 const DrawingWindow = () => {
   const [grid, setGrid] = useState();
@@ -67,7 +88,7 @@ const DrawingWindow = () => {
 
   const divStyle = {
     height: "500px",
-    width: `900px`, //${canvasWidth}px
+    width: `500px`, //${canvasWidth}px
     display: "grid",
     border: "1px solid black",
     gridTemplateColumns: "repeat(auto-fill, 25px)",
@@ -77,7 +98,7 @@ const DrawingWindow = () => {
   let squares = [];
 
   const generateGrid = () => {
-    for (let i = 0; i < 720; i++) {
+    for (let i = 0; i < 400; i++) {
       squares.push({});
     }
   };
@@ -117,7 +138,7 @@ const DrawingWindow = () => {
         </div>
       </div>
       <div className='colors-container'>
-        <ColorPicker handleColorChange={handleColorChange} />
+        {/* <ColorPicker handleColorChange={handleColorChange} /> */}
         <ColorScheme handleColorChange={handleColorChange} />
       </div>
     </Fragment>

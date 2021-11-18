@@ -15,12 +15,16 @@ const Panel = () => {
     }
     return (
         <div className='container'>
+            <div className='left'></div>
+            <div className='right'>
             <DrawingWindow panelLength={panelLength} />
             <form onSubmit={handleSubmit}>
                 <FilePicker accept='.jpg,.png,.jpeg' label='Images' updateFilesCb={updateUploadedFiles} />
                 
             </form>
+            </div>
         </div>
+        
     )
 }
 

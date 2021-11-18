@@ -36,13 +36,18 @@
 
 .color-pallete {
   display: grid;
+  grid-gap: 1.4rem;
   grid-template-columns: repeat(3, 12px);
   grid-template-rows: repeat(3, auto);
 }
 .color-item {
-  height: 15px;
-  width: 15px;
-  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  border-radius: 25%;
+}
+
+.color-picker {
+  display: flex;
 }
 
 /* .row {

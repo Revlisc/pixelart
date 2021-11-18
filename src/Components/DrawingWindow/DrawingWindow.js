@@ -15,15 +15,35 @@ const getWindowDimentions = () => {
 
 const CanvasSizePicker = () => {};
 
-const ColorPicker = ({ handleColorChange, addNewColor }) => {
+const ColorPicker = ({ addNewColor }) => {
   const [color, setColor] = useState("");
   //color picker is a controlled component, when state changes, pass the color value to the parent state selectedColor
-  useEffect(() => {
-    handleColorChange && handleColorChange(color);
-    addNewColor && addNewColor(color);
-  }, [color]);
+  // useEffect(() => {
+  //   addNewColor(color);
+  // }, [color]);
+  const handleChangeComplete = (color) => {
+    setColor(color.hex);
+    console.log("change complete");
+  };
 
-  return <ChromePicker color={color} onChangeComplete={(color) => setColor(color.hex)} />;
+  const colorPickerSample = {
+    height: "30px",
+    width: "30px",
+    borderRadius: "25%",
+    backgroundColor: `${color}`,
+  };
+
+  return (
+    <Fragment>
+      <div className='color-picker'>
+        <ChromePicker color={color} onChangeComplete={handleChangeComplete} />
+        <div style={colorPickerSample}></div>
+        <div className='add-color' onClick={() => addNewColor(color)}>
+          Add this
+        </div>
+      </div>
+    </Fragment>
+  );
 };
 
 const ColorScheme = ({ handleColorChange }) => {
@@ -35,21 +55,23 @@ const ColorScheme = ({ handleColorChange }) => {
   };
 
   return (
-    <div className='color-pallete'>
-      {pallete.map((color, idx) => {
-        return (
-          <div
-            key={idx}
-            className='color-item'
-            style={{ backgroundColor: `${color}` }}
-            onClick={() => handleColorChange(color)}></div>
-        );
-      })}
-      <div className='add-new-color' onClick={() => setShowColorPicker(!showColorPicker)}>
-        Add new color
+    <Fragment>
+      <div className='color-pallete'>
+        {pallete.map((color, idx) => {
+          return (
+            <div
+              key={idx}
+              className='color-item'
+              style={{ backgroundColor: `${color}` }}
+              onClick={() => handleColorChange(color)}></div>
+          );
+        })}
+        <div className='add-new-color' onClick={() => setShowColorPicker(!showColorPicker)}>
+          Add new color
+        </div>
       </div>
       {showColorPicker && <ColorPicker addNewColor={addNewColor} />}
-    </div>
+    </Fragment>
   );
 };
 
@@ -117,7 +139,7 @@ const DrawingWindow = () => {
         </div>
       </div>
       <div className='colors-container'>
-        <ColorPicker handleColorChange={handleColorChange} />
+        {/* <ColorPicker handleColorChange={handleColorChange} /> */}
         <ColorScheme handleColorChange={handleColorChange} />
       </div>
     </Fragment>

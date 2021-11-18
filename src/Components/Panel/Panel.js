@@ -20,8 +20,8 @@ const Panel = () => {
             <div className='container'>
                 
                 <div className='left'>
-                    <form onSubmit={handleSubmit}>
-                        <FilePicker accept='.jpg,.png,.jpeg' label='Images' updateFilesCb={updateUploadedFiles} />
+                    <form onSubmit={handleSubmit} className='form'>
+                        <FilePicker accept='.jpg,.png,.jpeg' updateFilesCb={updateUploadedFiles} />
                     </form>
                 </div>
                 <div className='right'>

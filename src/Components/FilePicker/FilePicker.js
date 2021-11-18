@@ -27,9 +27,9 @@ const FilePicker = ({label, updateFilesCb, ...otherProps}) => {
     const addNewFiles = (newFiles) => {
         for (let file of newFiles) {
           if (file.size) {
-            if (!otherProps.multiple) {
-              return { file };
-            }
+            //if (!otherProps.multiple) {
+            //  return { file };
+            //}
             files[file.name] = file;
           }
         }
@@ -54,7 +54,6 @@ const FilePicker = ({label, updateFilesCb, ...otherProps}) => {
         <>
         {Object.keys(files).length === 0 ? (
         <section className='fileUploadContainer'>
-            <label>{label}</label>
             <p>Drag and drop your files anywhere or</p>
             <button type="button" onClick={handleUploadBtnClick}>
                 <i className="fas fa-file-upload" />

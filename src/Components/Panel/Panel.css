@@ -9,6 +9,8 @@
 
 .left {
   width: 50%;
+  align-items: center;
+  align-content: center;
 }
 
 .right {
@@ -29,4 +31,10 @@
   margin-top: 0;
   margin-bottom: 0;
   text-shadow: 3px 3px 2px rgba(255, 255, 255, 0.5);
+}
+
+.form {
+  align-items: center;
+  justify-content: center;
+  margin-left: 25%;
 }

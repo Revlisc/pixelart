@@ -1,0 +1,27 @@
+.color-pallete {
+  display: grid;
+  grid-gap: 1.4rem;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(3, auto);
+  padding: 1rem 2rem;
+}
+.color-item {
+  height: 70px;
+  width: 70px;
+  border-radius: 25%;
+}
+
+.add-new-color {
+  height: 70px;
+  width: 70px;
+  border-radius: 25%;
+  color: black;
+  background-color: beige;
+}
+.delete-color {
+  height: 70px;
+  width: 70px;
+  border-radius: 25%;
+  color: black;
+  background-color: beige;
+}

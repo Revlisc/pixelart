@@ -17,7 +17,6 @@ const DrawingWindow = ({ selectedColor }) => {
   const [grid, setGrid] = useState();
   const [windowDimensions, setWindowDimensions] = useState(getWindowDimentions());
   const [canvasWidth, setCanvasWidth] = useState("");
-  // const [selectedColor, setSelectedColor] = useState("");
 
   const getCanvasWidth = () => {
     //should be 75% of viewport height?

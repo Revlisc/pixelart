@@ -1,12 +1,25 @@
 import React, { useState, Fragment } from "react";
 import ColorPicker from "../ColorPicker/ColorPicker";
+import "./ColorScheme.css";
 
 const ColorScheme = ({ handleColorChange }) => {
-  const [pallete, setPallete] = useState(["#bada55", "#A6B7DA"]);
+  const [pallete, setPallete] = useState([
+    "#bada55",
+    "#A6B7DA",
+    "#dddddd",
+    "#dddddd",
+    "#dddddd",
+    "#bada55",
+    "#A6B7DA",
+    "#dddddd",
+    "#dddddd",
+    "#dddddd",
+  ]);
   const [showColorPicker, setShowColorPicker] = useState(false);
 
   const addNewColor = (color) => {
     setPallete([...pallete, color]);
+    setShowColorPicker(false);
   };
 
   return (
@@ -24,6 +37,7 @@ const ColorScheme = ({ handleColorChange }) => {
         <div className='add-new-color' onClick={() => setShowColorPicker(!showColorPicker)}>
           Add new color
         </div>
+        <div className='delete-color'>Delete Color</div>
       </div>
       {showColorPicker && <ColorPicker addNewColor={addNewColor} />}
     </Fragment>

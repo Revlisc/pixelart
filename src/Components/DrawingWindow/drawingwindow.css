@@ -18,16 +18,31 @@
   display: inline; */
 }
 
-.square {
+/* .square {
   height: 25px;
   width: 25px;
   border: 1px solid black;
-}
+} */
 
 .container-drawingWindow {
   width: 100vw;
   display: flex;
   justify-content: center;
+}
+
+.colors-container {
+  display: flex;
+}
+
+.color-pallete {
+  display: grid;
+  grid-template-columns: repeat(3, 12px);
+  grid-template-rows: repeat(3, auto);
+}
+.color-item {
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
 }
 
 /* .row {

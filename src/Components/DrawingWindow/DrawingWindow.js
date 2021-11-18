@@ -1,6 +1,9 @@
 import React, { useState, useEffect, Fragment } from "react";
 // import Row from "../Row/Row";
 import "./drawingwindow.css";
+import Square from "../Square/Square";
+import { v4 as uuidv4 } from "uuid";
+import { ChromePicker } from "react-color";
 
 const getWindowDimentions = () => {
   const { innerWidth: width, innerHeight: height } = window;
@@ -10,16 +13,51 @@ const getWindowDimentions = () => {
   };
 };
 
-export const Square = () => {
-  return <div className='square'></div>;
-};
-
 const CanvasSizePicker = () => {};
 
-const DrawingWindow = ({ panelLength, selectedColor }) => {
+const ColorPicker = ({ handleColorChange, addNewColor }) => {
+  const [color, setColor] = useState("");
+  //color picker is a controlled component, when state changes, pass the color value to the parent state selectedColor
+  useEffect(() => {
+    handleColorChange && handleColorChange(color);
+    addNewColor && addNewColor(color);
+  }, [color]);
+
+  return <ChromePicker color={color} onChangeComplete={(color) => setColor(color.hex)} />;
+};
+
+const ColorScheme = ({ handleColorChange }) => {
+  const [pallete, setPallete] = useState(["#bada55", "#A6B7DA"]);
+  const [showColorPicker, setShowColorPicker] = useState(false);
+
+  const addNewColor = (color) => {
+    setPallete([...pallete, color]);
+  };
+
+  return (
+    <div className='color-pallete'>
+      {pallete.map((color, idx) => {
+        return (
+          <div
+            key={idx}
+            className='color-item'
+            style={{ backgroundColor: `${color}` }}
+            onClick={() => handleColorChange(color)}></div>
+        );
+      })}
+      <div className='add-new-color' onClick={() => setShowColorPicker(!showColorPicker)}>
+        Add new color
+      </div>
+      {showColorPicker && <ColorPicker addNewColor={addNewColor} />}
+    </div>
+  );
+};
+
+const DrawingWindow = () => {
   const [grid, setGrid] = useState();
   const [windowDimensions, setWindowDimensions] = useState(getWindowDimentions());
   const [canvasWidth, setCanvasWidth] = useState("");
+  const [selectedColor, setSelectedColor] = useState("");
 
   const getCanvasWidth = () => {
     //should be 75% of viewport height?
@@ -29,7 +67,7 @@ const DrawingWindow = ({ panelLength, selectedColor }) => {
 
   const divStyle = {
     height: "500px",
-    width: `900px`,
+    width: `900px`, //${canvasWidth}px
     display: "grid",
     border: "1px solid black",
     gridTemplateColumns: "repeat(auto-fill, 25px)",
@@ -38,13 +76,13 @@ const DrawingWindow = ({ panelLength, selectedColor }) => {
 
   let squares = [];
 
-  useEffect(() => {
-    const generateGrid = () => {
-      for (let i = 0; i < 720; i++) {
-        squares.push(<Square />);
-      }
-    };
+  const generateGrid = () => {
+    for (let i = 0; i < 720; i++) {
+      squares.push({});
+    }
+  };
 
+  useEffect(() => {
     const handleResize = () => {
       setWindowDimensions(getWindowDimentions());
     };
@@ -63,14 +101,24 @@ const DrawingWindow = ({ panelLength, selectedColor }) => {
     getCanvasWidth();
   }, [windowDimensions]);
 
-  console.log(canvasWidth);
+  const handleColorChange = (color) => {
+    setSelectedColor(color);
+  };
 
   return (
     <Fragment>
       <div className='container-drawingWindow'>
         <div className='containerDrawing' style={divStyle}>
-          {grid}
+          {/* {grid} */}
+          {grid &&
+            grid.map((item, idx) => {
+              return <Square key={idx} id={uuidv4()} selectedColor={selectedColor} />;
+            })}
         </div>
+      </div>
+      <div className='colors-container'>
+        <ColorPicker handleColorChange={handleColorChange} />
+        <ColorScheme handleColorChange={handleColorChange} />
       </div>
     </Fragment>
   );

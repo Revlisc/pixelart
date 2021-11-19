@@ -13,6 +13,10 @@ const Panel = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
     }
+
+    const handleColorChange = (color) => {
+        setSelectedColor(color);
+    };
     return (
         <>
             <h1 className='dashTitle'>Let's Make Some</h1>
@@ -23,10 +27,10 @@ const Panel = () => {
                     <form onSubmit={handleSubmit} className='form'>
                         <FilePicker accept='.jpg,.png,.jpeg' updateFilesCb={updateUploadedFiles} />
                     </form>
+                    <ColorScheme handleColorChange={handleColorChange} selectedColor={selectedColor} />
                 </div>
                 <div className='right'>
-                    <DrawingWindow panelLength={panelLength} />
-                
+                    <DrawingWindow selectedColor={selectedColor} />
                 </div>
             </div>
         </>

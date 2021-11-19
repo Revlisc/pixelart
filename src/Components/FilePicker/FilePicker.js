@@ -87,10 +87,10 @@ const FilePicker = ({label, updateFilesCb, ...otherProps}) => {
                         />
                     )}
                     <div isImageFile={isImageFile}>
-                        <span>{file.name}</span>
+                        <span className='fileName'>{file.name}</span>
                         <aside>
                         {/*<span>{convertByteToKilo(file.size)} kb</span>*/}
-                        <i className="fas fa-trash-alt" onClick={() => removeFile(fileName)}/>
+                        <i className="fas fa-trash-alt fileName" onClick={() => removeFile(fileName)}/>
                         </aside>
                     </div>
                     </div>

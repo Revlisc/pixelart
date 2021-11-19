@@ -23,7 +23,7 @@ const ColorScheme = ({ handleColorChange, selectedColor }) => {
 
   //if click anything other than the delete icon, exit delete mode(no delete buttons)
   const handleClickOutside = (e) => {
-    if (e.target.className === "delete-color-btn") {
+    if (e.target.className === "fa fa-times") {
       console.log(true);
       return;
     }
@@ -59,17 +59,17 @@ const ColorScheme = ({ handleColorChange, selectedColor }) => {
               onClick={() => handleColorChange(color)}>
               {showDeleteBtns && (
                 <div className='delete-color-btn' onClick={() => handleDelete(color)}>
-                  X
+                  <i className='fa fa-times'></i>
                 </div>
               )}
             </div>
           );
         })}
         <div className='add-new-color' onClick={() => setShowColorPicker(!showColorPicker)}>
-          Add new color
+          <i className='fa fa-plus'></i>
         </div>
         <div className='delete-color' onClick={() => setShowDeleteBtns(true)}>
-          Delete Color
+          <i className='fa fa-trash'></i>
         </div>
       </div>
       {showColorPicker && <ColorPicker addNewColor={addNewColor} />}

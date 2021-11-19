@@ -17,6 +17,10 @@
   border-radius: 25%;
   color: black;
   background-color: beige;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.6rem;
 }
 .delete-color {
   height: 70px;
@@ -24,6 +28,10 @@
   border-radius: 25%;
   color: black;
   background-color: beige;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.6rem;
 }
 
 .delete-color-btn {

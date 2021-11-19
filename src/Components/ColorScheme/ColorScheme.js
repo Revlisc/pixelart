@@ -3,10 +3,12 @@ import ColorPicker from "../ColorPicker/ColorPicker";
 import { v4 as uuidv4 } from "uuid";
 import "./ColorScheme.css";
 
-const ColorScheme = ({ handleColorChange }) => {
+const ColorScheme = ({ handleColorChange, selectedColor }) => {
   const [pallete, setPallete] = useState(["#bada55", "#A6B7DA"]);
   const [showColorPicker, setShowColorPicker] = useState(false);
   const [showDeleteBtns, setShowDeleteBtns] = useState(false);
+
+  console.log(selectedColor);
 
   useEffect(() => {
     if (showDeleteBtns) {
@@ -14,12 +16,12 @@ const ColorScheme = ({ handleColorChange }) => {
     } else {
       document.removeEventListener("mousedown", handleClickOutside);
     }
-
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [showDeleteBtns]);
 
+  //if click anything other than the delete icon, exit delete mode(no delete buttons)
   const handleClickOutside = (e) => {
     if (e.target.className === "delete-color-btn") {
       console.log(true);
@@ -49,7 +51,11 @@ const ColorScheme = ({ handleColorChange }) => {
               key={idx}
               id={uuidv4()}
               className='color-item'
-              style={{ backgroundColor: `${color}`, position: "relative" }}
+              style={{
+                backgroundColor: `${color}`,
+                position: "relative",
+                border: `${color === selectedColor ? "4px solid green" : "none"}`,
+              }}
               onClick={() => handleColorChange(color)}>
               {showDeleteBtns && (
                 <div className='delete-color-btn' onClick={() => handleDelete(color)}>

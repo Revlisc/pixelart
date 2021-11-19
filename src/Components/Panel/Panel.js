@@ -26,7 +26,7 @@ const Panel = () => {
           <FilePicker accept='.jpg,.png,.jpeg' label='Images' updateFilesCb={updateUploadedFiles} />
         </form>
 
-        <ColorScheme handleColorChange={handleColorChange} />
+        <ColorScheme handleColorChange={handleColorChange} selectedColor={selectedColor} />
       </div>
       <div className='right'>
         <DrawingWindow selectedColor={selectedColor} />

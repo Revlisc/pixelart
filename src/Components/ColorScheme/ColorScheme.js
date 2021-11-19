@@ -1,23 +1,32 @@
-import React, { useState, Fragment } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import ColorPicker from "../ColorPicker/ColorPicker";
 import { v4 as uuidv4 } from "uuid";
 import "./ColorScheme.css";
 
 const ColorScheme = ({ handleColorChange }) => {
-  const [pallete, setPallete] = useState([
-    "#bada55",
-    "#A6B7DA",
-    "#dddddd",
-    "#dddddd",
-    "#dddddd",
-    "#bada55",
-    "#A6B7DA",
-    "#dddddd",
-    "#dddddd",
-    "#dddddd",
-  ]);
+  const [pallete, setPallete] = useState(["#bada55", "#A6B7DA"]);
   const [showColorPicker, setShowColorPicker] = useState(false);
   const [showDeleteBtns, setShowDeleteBtns] = useState(false);
+
+  useEffect(() => {
+    if (showDeleteBtns) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [showDeleteBtns]);
+
+  const handleClickOutside = (e) => {
+    if (e.target.className === "delete-color-btn") {
+      console.log(true);
+      return;
+    }
+    setShowDeleteBtns(false);
+  };
 
   const addNewColor = (color) => {
     setPallete([...pallete, color]);

@@ -1,8 +1,9 @@
 import React, { useState, Fragment } from "react";
-import { ChromePicker } from "react-color";
+import { SliderPicker } from "react-color";
+import "./ColorPicker.css";
 
 const ColorPicker = ({ addNewColor }) => {
-  const [color, setColor] = useState("");
+  const [color, setColor] = useState("#ffffff");
   //color picker is a controlled component, when state changes, pass the color value to the parent state selectedColor
   // useEffect(() => {
   //   addNewColor(color);
@@ -13,8 +14,8 @@ const ColorPicker = ({ addNewColor }) => {
   };
 
   const colorPickerSample = {
-    height: "30px",
-    width: "30px",
+    height: "70px",
+    width: "70px",
     borderRadius: "25%",
     backgroundColor: `${color}`,
   };
@@ -22,11 +23,11 @@ const ColorPicker = ({ addNewColor }) => {
   return (
     <Fragment>
       <div className='color-picker'>
-        <ChromePicker color={color} onChangeComplete={handleChangeComplete} />
         <div style={colorPickerSample}></div>
         <div className='add-color' onClick={() => addNewColor(color)}>
           Add this
         </div>
+        <SliderPicker color={color} onChangeComplete={handleChangeComplete} />
       </div>
     </Fragment>
   );

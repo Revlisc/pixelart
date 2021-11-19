@@ -1,0 +1,41 @@
+.color-pallete {
+  display: grid;
+  grid-gap: 1.4rem;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(3, auto);
+  padding: 1rem 2rem;
+}
+.color-item {
+  height: 70px;
+  width: 70px;
+  border-radius: 25%;
+}
+
+.add-new-color {
+  height: 70px;
+  width: 70px;
+  border-radius: 25%;
+  color: black;
+  background-color: beige;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.6rem;
+}
+.delete-color {
+  height: 70px;
+  width: 70px;
+  border-radius: 25%;
+  color: black;
+  background-color: beige;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.6rem;
+}
+
+.delete-color-btn {
+  position: absolute;
+  top: 0;
+  right: 5px;
+}

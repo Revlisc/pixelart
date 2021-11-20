@@ -5,24 +5,24 @@ import Square from "../Square/Square";
 
 import { v4 as uuidv4 } from "uuid";
 
-const getWindowDimentions = () => {
-  const { innerWidth: width, innerHeight: height } = window;
-  return {
-    height,
-    width,
-  };
-};
+// const getWindowDimentions = () => {
+//   const { innerWidth: width, innerHeight: height } = window;
+//   return {
+//     height,
+//     width,
+//   };
+// };
 
 const DrawingWindow = ({ selectedColor }) => {
   const [grid, setGrid] = useState();
-  const [windowDimensions, setWindowDimensions] = useState(getWindowDimentions());
-  const [canvasWidth, setCanvasWidth] = useState("");
+  //const [windowDimensions, setWindowDimensions] = useState(getWindowDimentions());
+  //const [canvasWidth, setCanvasWidth] = useState("");
 
-  const getCanvasWidth = () => {
-    //should be 75% of viewport height?
-    let adjustedWidth = Math.floor(windowDimensions.width * 0.75);
-    setCanvasWidth(adjustedWidth);
-  };
+  // const getCanvasWidth = () => {
+  //   //should be 75% of viewport height?
+  //   let adjustedWidth = Math.floor(windowDimensions.width * 0.75);
+  //   //setCanvasWidth(adjustedWidth);
+  // };
 
   const divStyle = {
     height: "500px",
@@ -46,9 +46,9 @@ const DrawingWindow = ({ selectedColor }) => {
     setGrid(squares);
   }, []);
 
-  useEffect(() => {
-    getCanvasWidth();
-  }, [windowDimensions]);
+  // useEffect(() => {
+  //   getCanvasWidth();
+  // }, [windowDimensions]);
 
   return (
     <Fragment>

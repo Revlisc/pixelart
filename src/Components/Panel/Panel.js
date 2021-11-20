@@ -53,7 +53,7 @@ const Panel = () => {
 
       <div className='container'>
         <div className='left'>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} className='form'>
             <FilePicker
               accept='.jpg,.png,.jpeg'
               label='Images'

@@ -68,14 +68,20 @@ const ColorScheme = ({ addNewColor, handleDelete, handleColorChange, selectedCol
               </div>
             );
           })}
-        <div className='add-new-color' onClick={() => setShowColorPicker(!showColorPicker)}>
-          <i className='fa fa-plus'></i>
-        </div>
-        <div className='delete-color' onClick={() => setShowDeleteBtns(true)}>
-          <i className='fa fa-trash'></i>
-        </div>
+          {
+            extractedColors.length < 10 && (
+          
+            <div className='add-new-color' onClick={() => setShowColorPicker(!showColorPicker)}>
+              <i className='fa fa-plus'></i>
+            </div>
+            
+          ) }
+          
+          <div className='delete-color' onClick={() => setShowDeleteBtns(true)}>
+            <i className='fa fa-trash'></i>
+          </div>
       </div>
-      {showColorPicker && <ColorPicker addNewColor={addNewColor} />}
+      {extractedColors.length < 10 && (showColorPicker && <ColorPicker addNewColor={addNewColor} />)}
     </Fragment>
   );
 };

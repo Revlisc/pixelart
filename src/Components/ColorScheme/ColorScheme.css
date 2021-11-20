@@ -4,6 +4,9 @@
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(3, auto);
   padding: 1rem 2rem;
+  width: 400px;
+  align-items: center;
+  margin: 0 auto;
 }
 .color-item {
   height: 70px;

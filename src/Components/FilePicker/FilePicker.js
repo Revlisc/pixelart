@@ -84,18 +84,19 @@ const FilePicker = ({updateFilesCb, ...otherProps}) => {
                 <section key={fileName}>
                   <div>
                     {isImageFile && (
+                      
                       <img
                         src={URL.createObjectURL(file)}
                         alt={`file preview ${index}`}
                         className='templateImage'
+                        style={{marginLeft: 0}}
                       />
+                      
+                      
                     )}
                     <div isImageFile={isImageFile}>
-                      <span>{file.name}</span>
-                      <aside>
-                        {/*<span>{convertByteToKilo(file.size)} kb</span>*/}
-                        <i className='fas fa-trash-alt' onClick={() => removeFile(fileName)} />
-                      </aside>
+                      <i className='fas fa-trash-alt fileName' onClick={() => removeFile(fileName)} />
+                      
                     </div>
                   </div>
                 </section>

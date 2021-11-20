@@ -17,7 +17,7 @@
     width: 80%;
     border: none;
     text-transform: none;
-    position: absolute;
+    
     top: 0;
     left: 0;
     right: 0;
@@ -34,6 +34,11 @@
     height: 300px;
     object-fit: cover;
     overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    margin: 0;
 }
 
 .fileName {

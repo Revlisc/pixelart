@@ -7,7 +7,7 @@ const Square = ({ id, selectedColor }) => {
     animation: null,
   });
 
-  const { color, filled, animation } = squareState;
+  const { color, filled, /*animation*/ } = squareState;
 
   const squareStyle = {
     height: "25px",

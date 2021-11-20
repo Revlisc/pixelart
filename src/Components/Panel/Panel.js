@@ -11,7 +11,7 @@ const Panel = () => {
   const [extractedColors, setExtractedColors] = useState("");
   const [url, setUrl] = useState("");
 
-  const [pallete, setPallete] = useState("");
+  //const [pallete, setPallete] = useState("");
   console.log(extractedColors);
 
   useEffect(() => {

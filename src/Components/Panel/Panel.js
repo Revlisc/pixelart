@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, Fragment, useEffect } from "react";
 import DrawingWindow from "../DrawingWindow/DrawingWindow";
 import "./Panel.css";
 import FilePicker from "../FilePicker/FilePicker";
@@ -8,6 +8,7 @@ import { ColorExtractor } from 'react-color-extractor'
 const Panel = () => {
     const [panelLength, setPanelLength] = useState(160);
     const [selectedColor, setSelectedColor] = useState("#f44332");
+    const [extractedColors, setExtractedColors] = useState("");
     const [images, setImages] = useState({ imageGuides: [] });
     const [files, setFiles] = useState({})
     const [colors, setColors] = useState([])
@@ -35,8 +36,11 @@ const Panel = () => {
     const getColors = (colors) => {
         setColors([...colors, colors])
     }
+    let url = "";
+
     if (images.imageGuides.length > 0) {
-        let url = URL.createObjectURL(images.imageGuides[0])
+        let blob = URL.createObjectURL(images.imageGuides[0]);
+        url = blob;
     }
     return (
         <>

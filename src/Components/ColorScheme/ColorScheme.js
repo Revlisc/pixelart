@@ -8,8 +8,6 @@ const ColorScheme = ({ handleColorChange, selectedColor }) => {
   const [showColorPicker, setShowColorPicker] = useState(false);
   const [showDeleteBtns, setShowDeleteBtns] = useState(false);
 
-  console.log(selectedColor);
-
   useEffect(() => {
     if (showDeleteBtns) {
       document.addEventListener("mousedown", handleClickOutside);

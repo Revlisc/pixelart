@@ -6,22 +6,24 @@ import ColorScheme from "../ColorScheme/ColorScheme";
 import { ColorExtractor } from 'react-color-extractor'
 
 const Panel = () => {
-    const [panelLength, setPanelLength] = useState(160);
-    const [selectedColor, setSelectedColor] = useState("#f44332");
-    const [extractedColors, setExtractedColors] = useState("");
-    const [images, setImages] = useState({ imageGuides: [] });
-    const [files, setFiles] = useState({})
-    const [colors, setColors] = useState([])
-//images.length === 1 ? URL.createObjectURL(new File([images?.imageGuides[0]], 'test')) : null
-    //console.log(images)
+  const [selectedColor, setSelectedColor] = useState("#f44332");
+  const [images, setImages] = useState({ imageGuides: [] });
+  const [extractedColors, setExtractedColors] = useState("");
+  const [url, setUrl] = useState("");
+  console.log(extractedColors);
 
-    const renderColors = () => {
-        return colors.map((color, id) => {
-            return (
-                <div key={id} style={{backgroundColor: color, width: 100, height: 100}} />
-            )
-        })
+  useEffect(() => {
+    if (images.imageGuides.length > 0) {
+      setUrl(URL.createObjectURL(images.imageGuides[0]));
+    } else {
+      setUrl("");
+      setExtractedColors("");
     }
+  }, [images]);
+
+  const updateUploadedFiles = (files) => {
+    setImages({ ...images, imageGuides: files });
+  };
 
     const updateUploadedFiles = (files) => setImages({...images, imageGuides: files})
     
@@ -33,37 +35,33 @@ const Panel = () => {
         setSelectedColor(color);
     };
 
-    const getColors = (colors) => {
-        setColors([...colors, colors])
-    }
-    let url = "";
+  return (
+    <Fragment>
+      <h1 className='dashTitle'>Let's Make Some</h1>
+      <h1 className='dashTitle'>Glow Art</h1>
 
-    if (images.imageGuides.length > 0) {
-        let blob = URL.createObjectURL(images.imageGuides[0]);
-        url = blob;
-    }
-    return (
-        <>
-            <h1 className='dashTitle'>Let's Make Some</h1>
-            <h1 className='dashTitle'>Glow Art</h1>
-            <div className='container'>
-                
-                <div className='left'>
-                    <form onSubmit={handleSubmit} className='form'>
-                        <FilePicker files={files} accept='.jpg,.png,.jpeg' updateFilesCb={updateUploadedFiles}/>
-                    </form>
-                    <ColorScheme handleColorChange={handleColorChange} selectedColor={selectedColor} />
-                    <ColorExtractor getColors={getColors} >
-                        <img src={url} />
-                    </ColorExtractor>
-                    {renderColors()}
-                </div>
-                <div className='right'>
-                    <DrawingWindow selectedColor={selectedColor} />
-                </div>
-            </div>
-        </>
-    )
-}
+      <div className='container'>
+        <div className='left'>
+          <form onSubmit={handleSubmit}>
+            <FilePicker
+              accept='.jpg,.png,.jpeg'
+              label='Images'
+              updateFilesCb={updateUploadedFiles}
+            />
+          </form>
+          <ColorExtractor src={url} getColors={(colors) => setExtractedColors(colors)} />;
+          <ColorScheme
+            handleColorChange={handleColorChange}
+            selectedColor={selectedColor}
+            extractedColors={extractedColors}
+          />
+        </div>
+        <div className='right'>
+          <DrawingWindow selectedColor={selectedColor} />
+        </div>
+      </div>
+    </Fragment>
+  );
+};
 
 export default Panel;

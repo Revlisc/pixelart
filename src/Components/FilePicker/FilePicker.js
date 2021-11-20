@@ -16,9 +16,7 @@ const FilePicker = ({updateFilesCb, ...otherProps}) => {
         fileInputField.current.click();
     };
 
-  const handleUploadBtnClick = () => {
-    fileInputField.current.click();
-  };
+  
 
   const handleNewFileUpload = (e) => {
     const { files: newFiles } = e.target;

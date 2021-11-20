@@ -6,13 +6,17 @@ import "./FilePicker.css";
 
 //const convertByteToKilo = (bytes) => Math.round(bytes/KILO_PER_BYTE), maxSizeBytes = MAX_DEFAULT_SIZE_BYTES
 
-const FilePicker = ({ label, updateFilesCb, ...otherProps }) => {
-  const fileInputField = useRef(null);
-  const [files, setFiles] = useState({});
+const FilePicker = ({updateFilesCb, ...otherProps}) => {
+    
+    const fileInputField = useRef(null)
+    const [files, setFiles] = useState({})
+    //const imageColorList = useContext()
+    
+    const handleUploadBtnClick = () => {
+        fileInputField.current.click();
+    };
 
-  const handleUploadBtnClick = () => {
-    fileInputField.current.click();
-  };
+  
 
   const handleNewFileUpload = (e) => {
     const { files: newFiles } = e.target;
@@ -73,9 +77,10 @@ const FilePicker = ({ label, updateFilesCb, ...otherProps }) => {
         <article>
           <section>
             {Object.keys(files).map((fileName, index) => {
-              let file = files[fileName];
-              let isImageFile = file.type.split("/")[0] === "image";
-              return (
+                let file = files[fileName];
+                console.log('file is', file)
+                let isImageFile = file.type.split("/")[0] === "image";
+                return (
                 <section key={fileName}>
                   <div>
                     {isImageFile && (

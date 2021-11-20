@@ -9,7 +9,17 @@ const Panel = () => {
   const [selectedColor, setSelectedColor] = useState("#f44332");
   const [images, setImages] = useState({ imageGuides: [] });
   const [extractedColors, setExtractedColors] = useState("");
+  const [url, setUrl] = useState("");
   console.log(extractedColors);
+
+  useEffect(() => {
+    if (images.imageGuides.length > 0) {
+      setUrl(URL.createObjectURL(images.imageGuides[0]));
+    } else {
+      setUrl("");
+      setExtractedColors("");
+    }
+  }, [images]);
 
   const updateUploadedFiles = (files) => {
     setImages({ ...images, imageGuides: files });
@@ -23,12 +33,6 @@ const Panel = () => {
     setSelectedColor(color);
   };
 
-  let url = "";
-
-  if (images.imageGuides.length > 0) {
-    let blob = URL.createObjectURL(images.imageGuides[0]);
-    url = blob;
-  }
   return (
     <Fragment>
       <h1 className='dashTitle'>Let's Make Some</h1>
@@ -43,9 +47,12 @@ const Panel = () => {
               updateFilesCb={updateUploadedFiles}
             />
           </form>
-          <ColorExtractor src={url} getColors={(colors) => console.log(colors)} />;
-          {/* <img src={url}></img> */}
-          <ColorScheme handleColorChange={handleColorChange} selectedColor={selectedColor} />
+          <ColorExtractor src={url} getColors={(colors) => setExtractedColors(colors)} />;
+          <ColorScheme
+            handleColorChange={handleColorChange}
+            selectedColor={selectedColor}
+            extractedColors={extractedColors}
+          />
         </div>
         <div className='right'>
           <DrawingWindow selectedColor={selectedColor} />

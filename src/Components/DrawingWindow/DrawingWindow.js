@@ -33,27 +33,17 @@ const DrawingWindow = ({ selectedColor }) => {
     gridTemplateRows: "repeat(auto-fill, 25px)",
   };
 
-  let squares = [];
-
-  const generateGrid = () => {
-    for (let i = 0; i < 400; i++) {
-      squares.push({});
-    }
-  };
-
   useEffect(() => {
-    const handleResize = () => {
-      setWindowDimensions(getWindowDimentions());
+    let squares = [];
+
+    const generateGrid = () => {
+      for (let i = 0; i < 400; i++) {
+        squares.push({});
+      }
     };
-
-    window.addEventListener("resize", handleResize);
-
-    getCanvasWidth();
 
     generateGrid();
     setGrid(squares);
-
-    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   useEffect(() => {

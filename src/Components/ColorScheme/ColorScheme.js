@@ -3,14 +3,14 @@ import ColorPicker from "../ColorPicker/ColorPicker";
 import { v4 as uuidv4 } from "uuid";
 import "./ColorScheme.css";
 
-const ColorScheme = ({ handleColorChange, selectedColor, extractedColors }) => {
-  const [pallete, setPallete] = useState("");
+const ColorScheme = ({ addNewColor, handleDelete, handleColorChange, selectedColor, extractedColors }) => {
+  //const [pallete, setPallete] = useState("");
   const [showColorPicker, setShowColorPicker] = useState(false);
   const [showDeleteBtns, setShowDeleteBtns] = useState(false);
-
-  useEffect(() => {
-    setPallete(extractedColors);
-  });
+  console.log('extracted colors are', extractedColors)
+  // useEffect(() => {
+  //   setPallete(extractedColors);
+  // });
 
   useEffect(() => {
     if (showDeleteBtns) {
@@ -32,23 +32,23 @@ const ColorScheme = ({ handleColorChange, selectedColor, extractedColors }) => {
     setShowDeleteBtns(false);
   };
 
-  const addNewColor = (color) => {
-    setPallete([...pallete, color]);
-    setShowColorPicker(false);
-  };
+  // const addNewColor = (color) => {
+  //   setPallete([...pallete, color]);
+  //   setShowColorPicker(false);
+  // };
 
-  const handleDelete = (color) => {
-    console.log(color);
-    const newPallete = pallete.filter((item) => item !== color);
+  // const handleDelete = (color) => {
+  //   console.log(color);
+  //   const newPallete = pallete.filter((item) => item !== color);
 
-    setPallete(newPallete);
-  };
+  //   setPallete(newPallete);
+  // };
 
   return (
     <Fragment>
       <div className='color-pallete'>
-        {pallete &&
-          pallete.map((color, idx) => {
+        {extractedColors &&
+          extractedColors.map((color, idx) => {
             return (
               <div
                 key={idx}

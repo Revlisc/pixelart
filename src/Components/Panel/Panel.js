@@ -10,6 +10,7 @@ const Panel = () => {
   const [images, setImages] = useState({ imageGuides: [] });
   const [extractedColors, setExtractedColors] = useState("");
   console.log(extractedColors);
+
   const updateUploadedFiles = (files) => {
     setImages({ ...images, imageGuides: files });
   };
@@ -23,13 +24,15 @@ const Panel = () => {
   };
 
   let url = "";
+
   if (images.imageGuides.length > 0) {
     let blob = URL.createObjectURL(images.imageGuides[0]);
     url = blob;
   }
   return (
     <Fragment>
-      <h1 className='dashTitle'>LET'S MAKE SOME GLOW ART</h1>
+      <h1 className='dashTitle'>Let's Make Some</h1>
+      <h1 className='dashTitle'>Glow Art</h1>
 
       <div className='container'>
         <div className='left'>
@@ -40,7 +43,7 @@ const Panel = () => {
               updateFilesCb={updateUploadedFiles}
             />
           </form>
-          <ColorExtractor src={url} getColors={(colors) => setExtractedColors(colors)} />;
+          <ColorExtractor src={url} getColors={(colors) => console.log(colors)} />;
           {/* <img src={url}></img> */}
           <ColorScheme handleColorChange={handleColorChange} selectedColor={selectedColor} />
         </div>

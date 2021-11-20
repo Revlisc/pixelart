@@ -3,10 +3,14 @@ import ColorPicker from "../ColorPicker/ColorPicker";
 import { v4 as uuidv4 } from "uuid";
 import "./ColorScheme.css";
 
-const ColorScheme = ({ handleColorChange, selectedColor }) => {
-  const [pallete, setPallete] = useState(["#bada55", "#A6B7DA"]);
+const ColorScheme = ({ handleColorChange, selectedColor, extractedColors }) => {
+  const [pallete, setPallete] = useState("");
   const [showColorPicker, setShowColorPicker] = useState(false);
   const [showDeleteBtns, setShowDeleteBtns] = useState(false);
+
+  useEffect(() => {
+    setPallete(extractedColors);
+  });
 
   useEffect(() => {
     if (showDeleteBtns) {
@@ -43,26 +47,27 @@ const ColorScheme = ({ handleColorChange, selectedColor }) => {
   return (
     <Fragment>
       <div className='color-pallete'>
-        {pallete.map((color, idx) => {
-          return (
-            <div
-              key={idx}
-              id={uuidv4()}
-              className='color-item'
-              style={{
-                backgroundColor: `${color}`,
-                position: "relative",
-                border: `${color === selectedColor ? "4px solid green" : "none"}`,
-              }}
-              onClick={() => handleColorChange(color)}>
-              {showDeleteBtns && (
-                <div className='delete-color-btn' onClick={() => handleDelete(color)}>
-                  <i className='fa fa-times'></i>
-                </div>
-              )}
-            </div>
-          );
-        })}
+        {pallete &&
+          pallete.map((color, idx) => {
+            return (
+              <div
+                key={idx}
+                id={uuidv4()}
+                className='color-item'
+                style={{
+                  backgroundColor: `${color}`,
+                  position: "relative",
+                  border: `${color === selectedColor ? "4px solid green" : "none"}`,
+                }}
+                onClick={() => handleColorChange(color)}>
+                {showDeleteBtns && (
+                  <div className='delete-color-btn' onClick={() => handleDelete(color)}>
+                    <i className='fa fa-times'></i>
+                  </div>
+                )}
+              </div>
+            );
+          })}
         <div className='add-new-color' onClick={() => setShowColorPicker(!showColorPicker)}>
           <i className='fa fa-plus'></i>
         </div>

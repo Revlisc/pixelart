@@ -1,54 +1,78 @@
+.introContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 5rem;
+}
+
 .introTitle {
-    font-family: 'Poppins', 'Open Sans';
-    font-style: normal;
-    font-weight: bold;
-    font-size: 57px;
-    line-height: 61px;
-    letter-spacing: 0.07em;
-    color: white;
-    text-shadow: 4px 4px 7px #B9AAAA;
+  font-family: "Poppins", "Open Sans";
+  font-style: normal;
+  font-weight: bold;
+  font-size: 57px;
+  line-height: 61px;
+  letter-spacing: 0.07em;
+  color: white;
+  text-shadow: 4px 4px 7px #b9aaaa;
 }
 
 .makeArtBtn {
-    font-family: 'Poppins', 'Open Sans';
-    border-radius: 25px;
-    background-color: #6840F3;
-    text-decoration: none;
-    font-style: none;
-    width: 160px;
-    line-height: 55px;
-    align-items: center;
-    color: white;
-    justify-content: center;
-    margin: 0;
-    text-align: center;
-    border-right: none;
-    padding-right: 0;
-    margin-right: 0;
-    display: inline-block;
+  font-family: "Poppins", "Open Sans";
+  border-radius: 25px;
+  background-color: #6840f3;
+  text-decoration: none;
+  font-style: none;
+  width: 160px;
+  line-height: 55px;
+  align-items: center;
+  color: white;
+  justify-content: center;
+  margin: 0;
+  text-align: center;
+  border-right: none;
+  padding-right: 0;
+  margin-right: 0;
+  display: inline-block;
+}
+
+.makeArtBtnContainer {
+  margin-top: 3rem;
 }
 
 .leftSideIntro {
-    width: 50%;
-    margin-left: 64px;
-    display: inline-block;
+  margin-left: 64px;
 }
 
 .rightSideIntro {
-    display: inline-block;
+  align-self: center;
+  justify-self: center;
 }
 
 .introPic {
-    width: 313px;
-    height: 313px;
-    margin-left: 40px;
+  width: 313px;
+  height: 313px;
+  margin-left: 40px;
 }
 
 .tutorialVid {
-    margin-top: 4rem;
+  margin-top: 4rem;
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 4rem;
+}
+
+/* Media Queries */
+
+@media only screen and (max-width: 35rem) {
+  .introContainer {
+    grid-template-columns: 1fr;
+    justify-content: center;
+    align-content: center;
     text-align: center;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    padding-bottom: 4rem;
+  }
+
+  .leftSideIntro {
+    margin-bottom: 3rem;
+  }
 }

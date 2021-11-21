@@ -7,7 +7,7 @@ const Square = ({ id, selectedColor }) => {
     animation: null,
   });
 
-  const { color, filled, /*animation*/ } = squareState;
+  const { color, filled /*animation*/ } = squareState;
 
   const squareStyle = {
     height: "25px",
@@ -21,9 +21,8 @@ const Square = ({ id, selectedColor }) => {
     setSquareState({
       ...squareState,
       filled: filled ? false : true,
-      color: selectedColor,
+      color: squareState.color !== "#FFFFFF" ? "#FFFFFF" : selectedColor,
     });
-    console.log(squareState, id);
   };
 
   return <div className='square' style={squareStyle} onClick={(e) => handleClick(e)}></div>;

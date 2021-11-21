@@ -18,6 +18,7 @@ const ColorPicker = ({ addNewColor }) => {
     width: "70px",
     borderRadius: "25%",
     backgroundColor: `${color}`,
+    alignSelf: "center",
   };
 
   return (

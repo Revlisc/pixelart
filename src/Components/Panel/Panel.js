@@ -4,6 +4,7 @@ import "./Panel.css";
 import FilePicker from "../FilePicker/FilePicker";
 import ColorScheme from "../ColorScheme/ColorScheme";
 import { ColorExtractor } from 'react-color-extractor'
+import { Link } from "react-router-dom";
 
 const Panel = () => {
   const [selectedColor, setSelectedColor] = useState("#f44332");
@@ -48,9 +49,10 @@ const Panel = () => {
 
   return (
     <Fragment>
-      <h1 className='dashTitle'>Let's Make Some</h1>
-      <h1 className='dashTitle'>Glow Art</h1>
-
+      
+      <Link to='/' className='link'><h1 className='dashTitle'>Let's Make Some</h1></Link>
+      <Link to='/' className='link'><h1 className='dashTitle'>Glow Art</h1></Link>
+      
       <div className='container'>
         <div className='left'>
           <form onSubmit={handleSubmit} className='form'>

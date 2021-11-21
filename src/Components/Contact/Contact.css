@@ -1,0 +1,20 @@
+.contactHeader {
+    font-family: 'Poppins', 'Open Sans';
+    text-align: center;
+    font-size: 42px;
+    line-height: 63px;
+    color: white;
+    letter-spacing: 11%;
+}
+
+.contact {
+    background-color: #6841F3;
+    padding-top: 10px;
+}
+
+.contactContainer {
+    margin-left: 40px;
+    display: flex;
+    
+    align-items: space-between;
+}

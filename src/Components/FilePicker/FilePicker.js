@@ -58,10 +58,10 @@ const FilePicker = ({updateFilesCb, ...otherProps}) => {
       {/* when files is empty */}
       {Object.keys(files).length === 0 ? (
         <section className='fileUploadContainer'>
-          <p>Drag and drop your files anywhere or</p>
+          <p style={{textAlign: 'center'}}>To get inspired, start by uploading an image</p>
           <button type='button' onClick={handleUploadBtnClick}>
             <i className='fas fa-file-upload' />
-            <span> Upload an Image</span>
+            <span>Here</span>
           </button>
           <input
             type='file'

@@ -13,20 +13,26 @@ const ColorPicker = ({ addNewColor }) => {
     console.log("change complete");
   };
 
-  const colorPickerSample = {
-    height: "70px",
-    width: "70px",
-    borderRadius: "25%",
-    backgroundColor: `${color}`,
+  const addColorButton = {
     alignSelf: "center",
+    backgroundColor: `${color}`,
+    padding: "0.5rem",
+    borderRadius: "12px",
+    margin: "10px 0",
+    position: "relative",
+    width: "50px",
+    height: "50px",
+    // color: "hsl(231,77%,90%)",
   };
 
   return (
     <Fragment>
       <div className='color-picker'>
-        <div style={colorPickerSample}></div>
-        <div className='add-color' onClick={() => addNewColor(color)}>
-          Add this
+        {/* <div style={colorPickerSample}></div> */}
+        <div className='add-color' style={addColorButton}>
+          <div className='add-plus' onClick={() => addNewColor(color)}>
+            <i className='fa fa-plus'></i>
+          </div>
         </div>
         <SliderPicker color={color} onChangeComplete={handleChangeComplete} />
       </div>

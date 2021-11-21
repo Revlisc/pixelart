@@ -1,5 +1,4 @@
 import React, { useState, useEffect, Fragment } from "react";
-// import Row from "../Row/Row";
 import "./drawingwindow.css";
 import Square from "../Square/Square";
 
@@ -15,6 +14,7 @@ import { v4 as uuidv4 } from "uuid";
 
 const DrawingWindow = ({ selectedColor }) => {
   const [grid, setGrid] = useState();
+
   //const [windowDimensions, setWindowDimensions] = useState(getWindowDimentions());
   //const [canvasWidth, setCanvasWidth] = useState("");
 
@@ -33,18 +33,37 @@ const DrawingWindow = ({ selectedColor }) => {
     gridTemplateRows: "repeat(auto-fill, 25px)",
   };
 
+  //render grid on load
   useEffect(() => {
     let squares = [];
 
     const generateGrid = () => {
       for (let i = 0; i < 400; i++) {
-        squares.push({});
+        squares.push({ color: "#FFFFFF", id: uuidv4() });
       }
     };
 
     generateGrid();
     setGrid(squares);
   }, []);
+
+  const handleRefresh = () => {
+    const refreshedGrid = grid.map((square) => {
+      return { ...square, color: "#FFFFFF" };
+    });
+    setGrid(refreshedGrid);
+  };
+
+  const handleClick = (id) => {
+    const newGrid = grid.map((square) => {
+      if (square.id === id) {
+        return { ...square, color: square.color === "#FFFFFF" ? selectedColor : "#FFFFFF" };
+      }
+      return square;
+    });
+
+    setGrid(newGrid);
+  };
 
   // useEffect(() => {
   //   getCanvasWidth();
@@ -54,12 +73,22 @@ const DrawingWindow = ({ selectedColor }) => {
     <Fragment>
       <div className='container-drawingWindow'>
         <div className='containerDrawing' style={divStyle}>
-          {/* {grid} */}
           {grid &&
             grid.map((item, idx) => {
-              return <Square key={idx} id={uuidv4()} selectedColor={selectedColor} />;
+              return (
+                <Square
+                  key={idx}
+                  color={item.color}
+                  id={item.id}
+                  selectedColor={selectedColor}
+                  handleClick={handleClick}
+                />
+              );
             })}
         </div>
+      </div>
+      <div className='refresh' onClick={() => handleRefresh()}>
+        Clear Board
       </div>
     </Fragment>
   );

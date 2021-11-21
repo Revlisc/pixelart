@@ -4,10 +4,19 @@
   flex-direction: column;
 }
 
-.add-color {
+/* .add-color {
   align-self: center;
   padding: 0.5rem;
   background-color: #673ff3;
   border-radius: 12px;
   margin: 10px 0;
+} */
+
+.add-plus {
+  position: absolute;
+  bottom: 50px;
+  right: -5px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  padding: 2px 5px;
 }

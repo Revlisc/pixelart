@@ -1,13 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 
-const Square = ({ id, selectedColor }) => {
-  const [squareState, setSquareState] = useState({
-    color: "#FFFFFF",
-    filled: false,
-    animation: null,
-  });
-
-  const { color, filled /*animation*/ } = squareState;
+const Square = ({ id, selectedColor, handleClick, color }) => {
+  // const [squareState, setSquareState] = useState({
+  //   color: "#FFFFFF",
+  //   filled: false,
+  //   animation: null,
+  // });
 
   const squareStyle = {
     height: "25px",
@@ -16,16 +14,16 @@ const Square = ({ id, selectedColor }) => {
     backgroundColor: `${color}`,
   };
 
-  const handleClick = (e) => {
-    e.preventDefault();
-    setSquareState({
-      ...squareState,
-      filled: filled ? false : true,
-      color: squareState.color !== "#FFFFFF" ? "#FFFFFF" : selectedColor,
-    });
-  };
+  // const handleClick = (e) => {
+  //   e.preventDefault();
+  //   setSquareState({
+  //     ...squareState,
+  //     filled: filled ? false : true,
+  //     color: squareState.color !== "#FFFFFF" ? "#FFFFFF" : selectedColor,
+  //   });
+  // };
 
-  return <div className='square' style={squareStyle} onClick={(e) => handleClick(e)}></div>;
+  return <div className='square' style={squareStyle} onClick={() => handleClick(id)}></div>;
 };
 
 export default Square;

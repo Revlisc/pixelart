@@ -1,0 +1,43 @@
+.glowLogo {
+    font-family: 'Faster One', 'Open Sans';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 38px;
+    line-height: 54px;
+    display: inline;
+    letter-spacing: 0.07em;
+    background-color: #120052;
+    color: #FFFFFF;
+    border: none;
+    margin-top: 10;
+    padding-left: 2rem;
+    margin-bottom: 0;
+    text-shadow: 3px 3px 2px rgba(255, 255, 255, 0.5);
+}
+
+.navbar {
+    overflow: hidden;
+    background-color: #120052;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-bottom: 4rem;
+    padding-top: 2rem;
+}
+
+.navLink {
+    float: right;
+    text-align: center;
+    padding-left: 14px;
+    padding-right: 14px;
+    text-decoration: none;
+    color: white;
+    font-family: 'Poppins', 'Open Sans';
+}
+
+.navLink:hover {
+    cursor: pointer;
+    border-radius: 5px;
+    animation-duration: 1000;
+    background-color: #6840F3;
+
+}

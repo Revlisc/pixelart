@@ -1,0 +1,54 @@
+.introTitle {
+    font-family: 'Poppins', 'Open Sans';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 57px;
+    line-height: 61px;
+    letter-spacing: 0.07em;
+    color: white;
+    text-shadow: 4px 4px 7px #B9AAAA;
+}
+
+.makeArtBtn {
+    font-family: 'Poppins', 'Open Sans';
+    border-radius: 25px;
+    background-color: #6840F3;
+    text-decoration: none;
+    font-style: none;
+    width: 160px;
+    line-height: 55px;
+    align-items: center;
+    color: white;
+    justify-content: center;
+    margin: 0;
+    text-align: center;
+    border-right: none;
+    padding-right: 0;
+    margin-right: 0;
+    display: inline-block;
+}
+
+.leftSideIntro {
+    width: 50%;
+    margin-left: 64px;
+    display: inline-block;
+}
+
+.rightSideIntro {
+    display: inline-block;
+}
+
+.introPic {
+    width: 313px;
+    height: 313px;
+    margin-left: 40px;
+}
+
+.tutorialVid {
+    margin-top: 4rem;
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 4rem;
+}

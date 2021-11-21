@@ -89,7 +89,7 @@ const FilePicker = ({updateFilesCb, ...otherProps}) => {
                         src={URL.createObjectURL(file)}
                         alt={`file preview ${index}`}
                         className='templateImage'
-                        style={{marginLeft: 0}}
+                        
                       />
                       
                       

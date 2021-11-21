@@ -1,5 +1,4 @@
 import React, { useState, useEffect, Fragment } from "react";
-// import Row from "../Row/Row";
 import "./drawingwindow.css";
 import Square from "../Square/Square";
 
@@ -34,6 +33,7 @@ const DrawingWindow = ({ selectedColor }) => {
     gridTemplateRows: "repeat(auto-fill, 25px)",
   };
 
+  //render grid on load
   useEffect(() => {
     let squares = [];
 

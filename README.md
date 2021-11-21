@@ -1,6 +1,15 @@
-# Getting Started with Create React App
+# Inspiration
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+We developed this project for 
+
+link to the project: 
+
+# Technologies Used
+
+<ul>
+    <li>React
+    <li>
+</ul>
 
 ## Available Scripts
 

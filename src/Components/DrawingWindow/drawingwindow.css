@@ -12,7 +12,14 @@
   display: flex;
 }
 
-/* .row {
-  width: 100%;
-  height: 5px;
-} */
+.refresh-btn {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: #6841f3;
+  display: inline-block;
+  border-radius: 1rem;
+}
+
+.refresh-btn:hover {
+  cursor: pointer;
+}

@@ -1,18 +1,12 @@
-import Panel from './Components/Panel/Panel'
-import './App.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-
-import LandingPage from './Pages/landingPage';
+import Panel from "./Components/Panel/Panel";
+import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
-  
   return (
-    <BrowserRouter >
+    <BrowserRouter>
       <Routes>
-        <Route path='/' element={<LandingPage />} />
         <Route path='/panel' element={<Panel />} />
-        
-        
       </Routes>
     </BrowserRouter>
   );

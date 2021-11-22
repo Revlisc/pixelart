@@ -3,16 +3,17 @@ import DrawingWindow from "../DrawingWindow/DrawingWindow";
 import "./Panel.css";
 import FilePicker from "../FilePicker/FilePicker";
 import ColorScheme from "../ColorScheme/ColorScheme";
+import ImageLibrary from "../ImageLibrary/ImageLibrary";
 import { ColorExtractor } from "react-color-extractor";
 import { Link } from "react-router-dom";
 
 const Panel = () => {
   const [selectedColor, setSelectedColor] = useState("#f44332");
   const [images, setImages] = useState({ imageGuides: [] });
+  const [testImg, setTestImg] = useState("");
   const [extractedColors, setExtractedColors] = useState("");
   const [url, setUrl] = useState("");
 
-  //const [pallete, setPallete] = useState("");
   console.log(extractedColors);
 
   useEffect(() => {
@@ -46,6 +47,11 @@ const Panel = () => {
     setExtractedColors(newPallete);
   };
 
+  const handleImageSelect = (img) => {
+    console.log(img);
+    setTestImg(img);
+  };
+
   return (
     <Fragment>
       <Link to='/' className='link'>
@@ -57,16 +63,25 @@ const Panel = () => {
 
       <div className='container'>
         <div className='left'>
-          <form onSubmit={handleSubmit} className='form'>
-            <FilePicker
-              accept='.jpg,.png,.jpeg'
-              label='Images'
-              updateFilesCb={updateUploadedFiles}
-            />
-          </form>
+          {testImg ? (
+            <div>
+              <img src={testImg}></img>
+              <ColorExtractor src={testImg} getColors={(colors) => setExtractedColors(colors)} />
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit} className='form'>
+              <FilePicker
+                accept='.jpg,.png,.jpeg'
+                label='Images'
+                updateFilesCb={updateUploadedFiles}
+              />
+            </form>
+          )}
+
           {images.imageGuides.length > 0 && (
             <ColorExtractor src={url} getColors={(colors) => setExtractedColors(colors)} />
           )}
+
           <ColorScheme
             handleColorChange={handleColorChange}
             selectedColor={selectedColor}
@@ -78,6 +93,9 @@ const Panel = () => {
         <div className='right'>
           <DrawingWindow selectedColor={selectedColor} />
         </div>
+      </div>
+      <div className='img-library'>
+        <ImageLibrary handleImageSelect={handleImageSelect} />
       </div>
     </Fragment>
   );

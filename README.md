@@ -1,13 +1,14 @@
 # Inspiration
 
-We developed this project for 
+We developed this project for
 
-link to the project: 
+link to the project:
 
 # Technologies Used
 
 <ul>
-    <li>React
+    <li>React</li>
+    <li><a href='https://github.com/nitin42/react-color-extractor/issues'>react-color-extractor</a></li>
     <li>
 </ul>
 

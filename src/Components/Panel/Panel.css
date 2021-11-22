@@ -1,22 +1,24 @@
+body {
+  background-color: #120052;
+}
+
 .container {
   background-color: #120052;
   width: 100vw;
-  height: 100vh;
-  padding: 0 2rem;
+
+  /* padding: 0 2rem; */
   display: flex;
   padding-top: 5rem;
 }
 
 .left {
   width: 50%;
-  
 }
 
 .right {
 }
 
 .dashTitle {
-
   font-family: Faster One;
   font-style: normal;
   font-weight: normal;
@@ -25,12 +27,11 @@
   text-align: center;
   letter-spacing: 0.07em;
   background-color: #120052;
-  color: #FFFFFF;
+  color: #ffffff;
   border: none;
   margin-top: 0;
   margin-bottom: 0;
   text-shadow: 3px 3px 2px rgba(255, 255, 255, 0.5);
-  
 }
 
 .link {
@@ -42,4 +43,11 @@
   align-items: center;
   justify-content: center;
   margin-left: 25%;
+}
+
+.img-library {
+  display: flex;
+  flex-direction: row;
+  background-color: #120052;
+  justify-content: center;
 }

@@ -1,0 +1,12 @@
+.thumbnail {
+  height: 125px;
+  width: 125px;
+  object-fit: cover;
+  overflow: hidden;
+  margin: 1rem;
+}
+
+.thumbnail > img {
+  width: 125px;
+  height: auto;
+}

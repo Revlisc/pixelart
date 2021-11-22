@@ -1,0 +1,225 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+body {
+  box-sizing: border-box; }
+
+body {
+  font-family: "Poppins", sans-serif;
+  display: grid;
+  grid-template-rows: min-content 1fr;
+  overflow-x: hidden; }
+
+.container {
+  padding-inline: 2rem;
+  margin-inline: auto;
+  max-width: 85rem; }
+
+.header {
+  background-color: #120052;
+  color: white;
+  padding-bottom: 5rem; }
+  .header__navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 3.5rem;
+    padding-inline: 3rem; }
+  .header__logo {
+    font-family: "Faster One", cursive;
+    font-size: 2rem;
+    letter-spacing: 5px; }
+  .header__logo-link {
+    text-decoration: none;
+    color: white; }
+  .header__nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly; }
+  .header__nav-link {
+    text-decoration: none;
+    color: white; }
+  .header__nav-item + .header__nav-item {
+    margin-left: 2.5rem; }
+  .header__content-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    align-content: center;
+    padding-inline: 2rem;
+    margin-block: 9rem; }
+  .header__heading-1 {
+    letter-spacing: 3px;
+    font-size: 3rem;
+    margin-bottom: 1.7rem;
+    text-shadow: 4px 4px 7px #b9aaaa; }
+  .header__description {
+    font-size: 1rem;
+    line-height: 1.7rem; }
+  .header__images {
+    justify-self: center;
+    display: grid; }
+  .header__icon-image {
+    max-height: 313px;
+    margin: 0 auto;
+    justify-self: center;
+    align-self: center; }
+  .header__btn-container {
+    margin-top: 3rem;
+    cursor: pointer; }
+  .header__make-art-btn {
+    background-color: #663ff3;
+    padding: 0.7em 1.7em;
+    border-radius: 3rem;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    cursor: pointer; }
+  .header__palette-icon {
+    color: white;
+    z-index: 300; }
+
+@media only screen and (max-width: 34.9rem) {
+  .header__content-container {
+    grid-template-columns: 1fr;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    text-align: center; }
+  .header__text-content {
+    margin-bottom: 5rem; }
+  .header__heading-1 {
+    font-size: 2.1rem; }
+  .header__description {
+    font-size: 0.9rem;
+    line-height: 1.7rem; }
+  .header__icon-image {
+    max-height: 213px; } }
+
+.demo {
+  margin-bottom: 3rem; }
+  .demo__heading {
+    text-align: center;
+    margin-top: 2rem;
+    color: #120052; }
+  .demo__video {
+    margin-top: 4rem;
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 4rem; }
+  .demo__btn-container {
+    margin: 0 auto;
+    text-align: center; }
+  .demo__try-btn {
+    margin: 0 auto;
+    text-align: center;
+    color: #120052; }
+
+.tutorial {
+  padding-block: 3rem; }
+  .tutorial__container {
+    background-color: #e1dfe7; }
+  .tutorial__heading {
+    text-align: center;
+    text-shadow: 3px 3px 2px rgba(255, 255, 255, 0.5);
+    margin-bottom: 3rem; }
+  .tutorial__content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 1fr);
+    row-gap: 5rem; }
+  .tutorial__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-items: center; }
+  .tutorial__stepnum {
+    font-family: "Faster One", "Open Sans";
+    border-radius: 50%;
+    color: #120052;
+    background-color: white;
+    width: 4.0625rem;
+    line-height: 4.0625rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.7rem;
+    display: inline-block;
+    text-align: center; }
+  .tutorial__description {
+    display: inline-block; }
+
+.contact {
+  background-color: #663ff3; }
+  .contact__container {
+    padding-block: 3rem; }
+  .contact__heading {
+    margin-bottom: 3rem;
+    text-align: center;
+    color: white;
+    letter-spacing: 0.11em;
+    font-size: 2.5rem;
+    text-shadow: 0px 4px 4px rgba(17, 6, 60, 0.44); }
+  .contact__card {
+    background-color: white;
+    max-width: 19rem;
+    border-radius: 13px; }
+  .contact__card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr));
+    row-gap: 2rem;
+    justify-items: center; }
+  .contact__image-container {
+    border-radius: 13px 13px 0 0; }
+    .contact__image-container--2 {
+      background: url(images/profileimgs/arthur-pic.jpeg) center center;
+      background-size: cover;
+      height: 17rem;
+      width: 100%; }
+    .contact__image-container--3 {
+      background: url(images/profileimgs/bridgett-pic.jpg) center center;
+      background-size: cover;
+      height: 17rem;
+      width: 100%; }
+  .contact__image {
+    height: 17rem;
+    border-radius: 13px 13px 0 0;
+    width: 100%; }
+  .contact__card-text {
+    text-align: center;
+    width: 87%;
+    margin: 0 auto;
+    padding-block: 1.1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; }
+  .contact__name {
+    margin-bottom: 1rem;
+    font-weight: 700;
+    font-size: 1.7rem;
+    letter-spacing: 0.08em;
+    color: #120052; }
+  .contact__description {
+    font-size: 0.9375rem;
+    line-height: 1.375rem;
+    color: #48397f;
+    letter-spacing: 0.02em; }
+  .contact__social-links {
+    display: flex;
+    text-align: center;
+    column-gap: 2.5rem;
+    margin-top: 1.5rem; }
+  .contact__icon-link {
+    color: #120052;
+    z-index: 300;
+    font-size: 2rem; }
+
+@media only screen and (max-width: 44.9rem) {
+  .contact__card-container {
+    margin: 0 auto; } }

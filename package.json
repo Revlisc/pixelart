@@ -7,6 +7,7 @@
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "font-awesome": "^4.7.0",
+    "node-sass": "^6.0.1",
     "react": "^17.0.2",
     "react-color": "^2.19.3",
     "react-color-extractor": "^1.1.2",
@@ -20,7 +21,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "compile:sass": "node-sass htmlLanding.scss htmlLanding.css -w"
   },
   "eslintConfig": {
     "extends": [

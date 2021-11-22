@@ -48,16 +48,17 @@ const Panel = () => {
 
   return (
     <Fragment>
-      <Link to='/' className='link'>
+      <a href='https://revlisc.github.io/glowArtLanding/' className='link'>
         <h1 className='dashTitle'>Let's Make Some</h1>
-      </Link>
-      <Link to='/' className='link'>
+      </a>
+      <Link to='https://revlisc.github.io/glowArtLanding/' className='link'>
         <h1 className='dashTitle'>Glow Art</h1>
       </Link>
 
       <div className='container'>
         <div className='left'>
           <form onSubmit={handleSubmit} className='form'>
+            
             <FilePicker
               accept='.jpg,.png,.jpeg'
               label='Images'

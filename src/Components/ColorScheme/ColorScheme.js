@@ -3,11 +3,17 @@ import ColorPicker from "../ColorPicker/ColorPicker";
 import { v4 as uuidv4 } from "uuid";
 import "./ColorScheme.css";
 
-const ColorScheme = ({ addNewColor, handleDelete, handleColorChange, selectedColor, extractedColors }) => {
+const ColorScheme = ({
+  addNewColor,
+  handleDelete,
+  handleColorChange,
+  selectedColor,
+  extractedColors,
+}) => {
   //const [pallete, setPallete] = useState("");
   const [showColorPicker, setShowColorPicker] = useState(false);
   const [showDeleteBtns, setShowDeleteBtns] = useState(false);
-  console.log('extracted colors are', extractedColors)
+  console.log("extracted colors are", extractedColors);
   // useEffect(() => {
   //   setPallete(extractedColors);
   // });
@@ -68,20 +74,17 @@ const ColorScheme = ({ addNewColor, handleDelete, handleColorChange, selectedCol
               </div>
             );
           })}
-          {
-            extractedColors.length < 10 && (
-          
-            <div className='add-new-color' onClick={() => setShowColorPicker(!showColorPicker)}>
-              <i className='fa fa-plus'></i>
-            </div>
-            
-          ) }
-          
-          <div className='delete-color' onClick={() => setShowDeleteBtns(true)}>
-            <i className='fa fa-trash'></i>
+        {extractedColors.length < 10 && (
+          <div className='add-new-color btn' onClick={() => setShowColorPicker(!showColorPicker)}>
+            <i className='fa fa-plus'></i>
           </div>
+        )}
+
+        <div className='delete-color btn' onClick={() => setShowDeleteBtns(true)}>
+          <i className='fa fa-trash'></i>
+        </div>
       </div>
-      {extractedColors.length < 10 && (showColorPicker && <ColorPicker addNewColor={addNewColor} />)}
+      {extractedColors.length < 10 && showColorPicker && <ColorPicker addNewColor={addNewColor} />}
     </Fragment>
   );
 };

@@ -30,8 +30,8 @@ const ColorPicker = ({ addNewColor }) => {
       <div className='color-picker'>
         {/* <div style={colorPickerSample}></div> */}
         <div className='add-color' style={addColorButton}>
-          <div className='add-plus' onClick={() => addNewColor(color)}>
-            <i className='fa fa-plus'></i>
+          <div className='add-plus ' onClick={() => addNewColor(color)}>
+            <i className='fa fa-plus btn'></i>
           </div>
         </div>
         <SliderPicker color={color} onChangeComplete={handleChangeComplete} />

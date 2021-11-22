@@ -87,7 +87,7 @@ const DrawingWindow = ({ selectedColor }) => {
             })}
         </div>
       </div>
-      <div className='refresh' onClick={() => handleRefresh()}>
+      <div className='refresh-btn' onClick={() => handleRefresh()}>
         Clear Board
       </div>
     </Fragment>

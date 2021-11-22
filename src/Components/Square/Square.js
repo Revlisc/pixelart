@@ -1,6 +1,6 @@
 import React from "react";
 
-const Square = ({ id, selectedColor, handleClick, color }) => {
+const Square = ({ id, handleClick, color }) => {
   // const [squareState, setSquareState] = useState({
   //   color: "#FFFFFF",
   //   filled: false,

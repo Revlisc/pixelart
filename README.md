@@ -1,5 +1,10 @@
 # Inspiration
 
+
+We developed this project for
+
+link to the project:
+
 We developed this project for the <a href='https://mintbean.io/meets?sort=upcoming'>Mintbean Hiring Hackathon for Junior Developers</a> in November 2021. The challenge was to create an app that fulfilled at least one of the following requirements: The user is able to draw free form lines on the page, or the user is able to click inside different areas of the screen and fill an area with color, a pattern, or texture. <br><br>
 
 After discussing some ideas, the team decided to base our app on the timeless <a href='https://en.wikipedia.org/wiki/Lite-Brite'>Lite-Brite</a> toy.
@@ -9,11 +14,16 @@ As developers, none of us had done any projects similar to this, so this project
 
 link to the project: <a href='https://glowart.netlify.app/'>Glow Art</a>
 
+
 # Technologies Used
 
 <ul>
     <li>React</li>
     <li><a href='https://github.com/nitin42/react-color-extractor/issues'>react-color-extractor</a></li>
+
+
+
+
 </ul>
 
 ## Available Scripts

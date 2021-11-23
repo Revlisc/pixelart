@@ -42,3 +42,7 @@
   top: 0;
   right: 5px;
 }
+
+.delete-color-btn:hover {
+  cursor: pointer;
+}

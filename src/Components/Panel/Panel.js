@@ -5,7 +5,7 @@ import FilePicker from "../FilePicker/FilePicker";
 import ColorScheme from "../ColorScheme/ColorScheme";
 import ImageLibrary from "../ImageLibrary/ImageLibrary";
 import { ColorExtractor } from "react-color-extractor";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 
 const Panel = () => {
   const [selectedColor, setSelectedColor] = useState("#f44332");

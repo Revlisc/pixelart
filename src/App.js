@@ -6,7 +6,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/panel' element={<Panel />} />
+        <Route path='/' element={<Panel />} />
       </Routes>
     </BrowserRouter>
   );

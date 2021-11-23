@@ -6,11 +6,13 @@ import ColorScheme from "../ColorScheme/ColorScheme";
 import { ColorExtractor } from "react-color-extractor";
 import { Link } from "react-router-dom";
 
+
 const Panel = () => {
   const [selectedColor, setSelectedColor] = useState("#f44332");
   const [images, setImages] = useState({ imageGuides: [] });
   const [extractedColors, setExtractedColors] = useState("");
   const [url, setUrl] = useState("");
+  
 
   //const [pallete, setPallete] = useState("");
   console.log(extractedColors);

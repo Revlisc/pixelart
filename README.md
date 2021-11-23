@@ -21,6 +21,7 @@ link to the project: <a href='https://glowart.netlify.app/'>Glow Art</a>
 
 ## Dale Simmons 
 Software Engineer for Glow Vibes Art. Dale is driven by solving challenging problems and collaborating with a passionate team to build great things. He is currently interested in roles as a full-stack developer or software engineer, and he is open to relocating.
+<br/>
 [linkedin](https://www.linkedin.com/in/dalejsimmons/)
 [github](https://github.com/Revlisc)
 [portfolio](https://dalesimmons.netlify.app/)

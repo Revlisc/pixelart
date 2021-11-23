@@ -1,18 +1,45 @@
 # Inspiration
 
+If you grew up in the '90s, you're probably familiar with the <a href='https://en.wikipedia.org/wiki/Lite-Brite'>Lite-Brite Toy</a> where you would place neon-colored, plastic pegs on a glowing light board panel to create a lit design. Or maybe you're familiar with the popular childhood craft where you delicately place tiny beads on a pegboard and gently carry it over an ironing board to fuse the beads together into a work of art. Whatever your flavor of childhood nostalgia, we've got the digital version ready for you to revisit the good times.
 
-We developed this project for
-
-link to the project:
-
-We developed this project for the <a href='https://mintbean.io/meets?sort=upcoming'>Mintbean Hiring Hackathon for Junior Developers</a> in November 2021. The challenge was to create an app that fulfilled at least one of the following requirements: The user is able to draw free form lines on the page, or the user is able to click inside different areas of the screen and fill an area with color, a pattern, or texture. <br><br>
-
-After discussing some ideas, the team decided to base our app on the timeless <a href='https://en.wikipedia.org/wiki/Lite-Brite'>Lite-Brite</a> toy.
-As developers, none of us had done any projects similar to this, so this project presented some interesting challenges that helped us grow as developers.
-
+We developed this project for the <a href='https://mintbean.io/meets?sort=upcoming'>Mintbean Hiring Hackathon for Junior Developers</a> in November 2021. The challenge was to create an app that fulfilled at least one of the following requirements: The user is able to draw free form lines on the page, or the user is able to click inside different areas of the screen and fill an area with color, a pattern, or texture. 
 
 
 link to the project: <a href='https://glowart.netlify.app/'>Glow Art</a>
+
+
+# How to use the app
+
+1. Select a photo. Search for an image you'd like to recreate or to inspire your own creation. You can also choose an image from our library.
+![step-1](https://revlisc.github.io/glowArtLanding/images/step1.png)
+2. Once you upload an image, we'll extract the major colors for your use! Simply click on which color you would like to use, and start clicking away.
+![step-2](https://revlisc.github.io/glowArtLanding/images/step2.png)
+3. Use the colors to recreate the image on the pixel grid OR use the colors to get the creative juices flowing and make your own masterpiece!
+![step-3](https://revlisc.github.io/glowArtLanding/images/step3tutorial.jpg)
+
+# Meet the team
+
+## Dale Simmons 
+Software Engineer for Glow Vibes Art. Dale is driven by solving challenging problems and collaborating with a passionate team to build great things. He is currently interested in roles as a full-stack developer or software engineer, and he is open to relocating.
+[linkedin](https://www.linkedin.com/in/dalejsimmons/)
+[github](https://github.com/Revlisc)
+[portfolio](https://dalesimmons.netlify.app/)
+## Bridgett Taylor
+Designer for Glow Vibes Art. Bridgett is a recent bootcamp graduate from Nucamp's Frontend Web Development program. She enjoys taking website designs and challenging herself to write more efficient and responsive code each time. She is based in Spokane, WA but open to remote work.
+<br/>
+[linkedin](https://www.linkedin.com/in/bridgett-taylor-dev/)
+[github](https://github.com/btaylor13)
+[portfolio](https://bridgett-taylor.netlify.app/)
+## Arthur Baker
+Full Stack Developer for Glow Vibes Art. Arthur is a music major turned software developer. He loves using problem solving skills and technical tools to produce elegant and functional solutions. He builds apps using React, MongoDB, Express, Node, React Native, and Expo.
+<br/>
+[linkedin](https://www.linkedin.com/in/arthur-baker-a88818188/)
+[github](https://github.com/artbaker82)
+[portfolio](https://arthurbakerdev.netlify.app/)
+
+
+
+
 
 
 # Technologies Used
@@ -20,13 +47,9 @@ link to the project: <a href='https://glowart.netlify.app/'>Glow Art</a>
 <ul>
     <li>React</li>
     <li><a href='https://github.com/nitin42/react-color-extractor/issues'>react-color-extractor</a></li>
-
-
-
-
 </ul>
 
-## Available Scripts
+## Deployment Instructions
 
 In the project directory, you can run:
 

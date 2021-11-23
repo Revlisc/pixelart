@@ -51,3 +51,27 @@ body {
   background-color: #120052;
   justify-content: center;
 }
+
+.test-img-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.test-img-thumbnail {
+  position: relative;
+}
+.test-img {
+  height: 300px;
+  width: auto;
+}
+
+i.test-img-delete-btn {
+  position: absolute;
+  bottom: 1rem;
+  left: 0;
+  color: white;
+}
+
+i.test-img-delete-btn:hover {
+  cursor: pointer;
+}

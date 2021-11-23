@@ -6,6 +6,10 @@
   margin: 1rem;
 }
 
+.thumbnail:hover {
+  cursor: pointer;
+}
+
 .thumbnail > img {
   width: 125px;
   height: auto;

@@ -1,10 +1,10 @@
-import React, { useState, useEffect, Fragment } from "react";
+import React, { useState, Fragment } from "react";
 import cassetteImg from "../../img/radio-cassette.png";
 import radioImg from "../../img/radio.png";
 import "./ImageLibrary.css";
 
 const ImageLibrary = ({ handleImageSelect }) => {
-  const [images, setImages] = useState([cassetteImg, radioImg]);
+  const [images] = useState([cassetteImg, radioImg]);
 
   return (
     <Fragment>

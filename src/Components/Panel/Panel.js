@@ -64,10 +64,18 @@ const Panel = () => {
       <div className='container'>
         <div className='left'>
           {testImg ? (
-            <div>
-              <img src={testImg}></img>
-              <ColorExtractor src={testImg} getColors={(colors) => setExtractedColors(colors)} />
-            </div>
+            <Fragment>
+              <div className='test-img-container'>
+                <div className='test-img-thumbnail'>
+                  <img className='test-img' src={testImg} alt='sample'></img>
+                  <ColorExtractor
+                    src={testImg}
+                    getColors={(colors) => setExtractedColors(colors)}
+                  />
+                  <i className='fa fa-trash test-img-delete-btn' onClick={() => setTestImg("")}></i>
+                </div>
+              </div>
+            </Fragment>
           ) : (
             <form onSubmit={handleSubmit} className='form'>
               <FilePicker
@@ -89,13 +97,14 @@ const Panel = () => {
             handleDelete={handleDelete}
             addNewColor={addNewColor}
           />
+
+          <div className='img-library'>
+            <ImageLibrary handleImageSelect={handleImageSelect} />
+          </div>
         </div>
         <div className='right'>
           <DrawingWindow selectedColor={selectedColor} />
         </div>
-      </div>
-      <div className='img-library'>
-        <ImageLibrary handleImageSelect={handleImageSelect} />
       </div>
     </Fragment>
   );

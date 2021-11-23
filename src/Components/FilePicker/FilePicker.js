@@ -1,37 +1,34 @@
 import React, { useState, useRef } from "react";
 import "./FilePicker.css";
 
-
-
 //const MAX_DEFAULT_SIZE_BYTES = 500000
 //const KILO_PER_BYTE = 1000
 
 //const convertByteToKilo = (bytes) => Math.round(bytes/KILO_PER_BYTE), maxSizeBytes = MAX_DEFAULT_SIZE_BYTES
 
 // window.addEventListener("dragover",function(e){
-  
+
 //   e.preventDefault();
 // },false);
 // window.addEventListener("drop",function(e){
-  
+
 //   e.preventDefault();
 // },false);
 
-const FilePicker = ({updateFilesCb, ...otherProps}) => {
-    
-  const fileInputField = useRef(null)
-  const [files, setFiles] = useState({})
-    //const imageColorList = useContext()
-    
+const FilePicker = ({ updateFilesCb, ...otherProps }) => {
+  const fileInputField = useRef(null);
+  const [files, setFiles] = useState({});
+  //const imageColorList = useContext()
+
   const handleUploadBtnClick = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     fileInputField.current.click();
   };
 
   const handleDrop = (e) => {
-    e.nativeEvent.preventDefault()
+    e.nativeEvent.preventDefault();
     fileInputField.current.click();
-  }
+  };
 
   const handleNewFileUpload = (e) => {
     const { files: newFiles } = e.target;
@@ -73,8 +70,14 @@ const FilePicker = ({updateFilesCb, ...otherProps}) => {
       {/* when files is empty */}
       {Object.keys(files).length === 0 ? (
         <section className='fileUploadContainer'>
-          <p style={{textAlign: 'center'}}>To get inspired, start by uploading an image</p>
-          <button type='button' onClick={(e) => handleUploadBtnClick(e)} onDragOver={(e) => e.preventDefault} onDrop={(e) => handleDrop(e)}>
+          <p style={{ textAlign: "center" }}>
+            To get inspired, start by uploading an image, or pick a sample image below
+          </p>
+          <button
+            type='button'
+            onClick={(e) => handleUploadBtnClick(e)}
+            onDragOver={(e) => e.preventDefault}
+            onDrop={(e) => handleDrop(e)}>
             <i className='fas fa-file-upload uploadBtn' />
             <span>Here</span>
           </button>
@@ -92,26 +95,24 @@ const FilePicker = ({updateFilesCb, ...otherProps}) => {
         <article>
           <section>
             {Object.keys(files).map((fileName, index) => {
-                let file = files[fileName];
-                console.log('file is', file)
-                //let isImageFile = file.type.split("/")[0] === "image";
-                return (
+              let file = files[fileName];
+              console.log("file is", file);
+              //let isImageFile = file.type.split("/")[0] === "image";
+              return (
                 <section key={fileName}>
                   <div>
                     {file && (
-                      
                       <img
                         src={URL.createObjectURL(file)}
                         alt={`file preview ${index}`}
                         className='templateImage'
-                        
                       />
-                      
-                      
                     )}
-                    <div >
-                      <i className='fas fa-trash-alt fileName' onClick={() => removeFile(fileName)} />
-                      
+                    <div>
+                      <i
+                        className='fas fa-trash-alt fileName'
+                        onClick={() => removeFile(fileName)}
+                      />
                     </div>
                   </div>
                 </section>

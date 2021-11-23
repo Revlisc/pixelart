@@ -57,9 +57,9 @@ const Panel = () => {
       <a href='https://revlisc.github.io/glowArtLanding/' className='link'>
         <h1 className='dashTitle'>Let's Make Some</h1>
       </a>
-      <Link to='https://revlisc.github.io/glowArtLanding/' className='link'>
+      <a href='https://revlisc.github.io/glowArtLanding/' className='link'>
         <h1 className='dashTitle'>Glow Art</h1>
-      </Link>
+      </a>
 
       <div className='container'>
         <div className='left'>
